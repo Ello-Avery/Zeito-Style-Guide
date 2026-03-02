@@ -10,6 +10,6 @@ import { ButtonPrimaryComponent, ButtonDisabledComponent } from './shared/compon
 })
 export class App {
   onClick() {
-    console.log('clicked');
+    document.documentElement.classList.toggle('dark');
   }
 }
