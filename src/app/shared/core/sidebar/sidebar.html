@@ -1,0 +1,19 @@
+<nav class="w-55 shrink-0 bg-(--zeito-surface-2) border-r-2 border-(--zeito-surface-1) py-8 sticky top-16 h-[calc(100vh-64px)] overflow-y-auto">
+  @for (group of nav; track group.label) {
+    <div
+      class="text-[10px] font-bold tracking-[0.14em] uppercase text-muted px-5 mb-1.5"
+      [class.mt-0]="$first"
+      [class.mt-6]="!$first"
+    >
+      {{ group.label }}
+    </div>
+    @for (link of group.links; track link.href) {
+      <a
+        class="block py-2 px-5 text-[13px] font-medium text-muted no-underline border-l-2 border-l-transparent transition-all duration-120 cursor-pointer hover:text-accent hover:border-l-accent hover:bg-[rgba(200,240,60,0.08)] [&.active]:text-accent [&.active]:border-l-accent [&.active]:bg-[rgba(200,240,60,0.1)]"
+        [class.active]="activeSection() === link.href"
+        [href]="'#' + link.href"
+        (click)="setActive(link.href)"
+      >{{ link.label }}</a>
+    }
+  }
+</nav>

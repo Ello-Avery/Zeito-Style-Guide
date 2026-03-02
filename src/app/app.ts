@@ -1,15 +1,12 @@
-import { Component, signal } from '@angular/core';
+import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { ButtonPrimaryComponent, ButtonDisabledComponent } from './shared/components/ui';
+import { Header } from './shared/core/header/header';
+import { Sidebar } from './shared/core/sidebar/sidebar';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, ButtonPrimaryComponent, ButtonDisabledComponent],
+  imports: [RouterOutlet, Header, Sidebar, Sidebar],
   templateUrl: './app.html',
   styleUrl: './app.css',
 })
-export class App {
-  onClick() {
-    document.documentElement.classList.toggle('dark');
-  }
-}
+export class App {}

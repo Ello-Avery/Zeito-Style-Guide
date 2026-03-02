@@ -1,0 +1,2250 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Zeito Move — Style Guide</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Barlow:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* ═══════════════════════════════════════════
+     DESIGN TOKENS — single source of truth
+  ═══════════════════════════════════════════ */
+      :root {
+        /* Backgrounds */
+        --bg: #0d0f0e;
+        --surface: #161918;
+        --surface2: #1e2220;
+
+        /* Borders */
+        --border: #2a2e2b;
+
+        /* Brand */
+        --accent: #c8f03c; /* Lime — primary action */
+        --accent2: #3cf0a0; /* Mint — For Time */
+
+        /* Semantic */
+        --danger: #f03c3c; /* Red — EMOM / destructive */
+        --warn: #f0a03c; /* Amber — Strength */
+        --success: #3cf0a0;
+
+        /* Text */
+        --text: #e8ede9;
+        --muted: #6b7568;
+
+        /* Fonts */
+        --font-display: 'Barlow Condensed', sans-serif;
+        --font-body: 'Barlow', sans-serif;
+
+        /* Spacing scale */
+        --sp-1: 4px;
+        --sp-2: 8px;
+        --sp-3: 12px;
+        --sp-4: 16px;
+        --sp-5: 20px;
+        --sp-6: 24px;
+        --sp-8: 32px;
+
+        /* Radii */
+        --radius-sm: 3px;
+        --radius: 4px;
+        --radius-md: 6px;
+        --radius-lg: 8px;
+
+        /* Transitions */
+        --t-fast: 0.12s ease;
+        --t-base: 0.15s ease;
+      }
+
+      /* ═══════════════════════════════════════════
+     RESET & BASE
+  ═══════════════════════════════════════════ */
+      *,
+      *::before,
+      *::after {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: var(--font-body);
+        background: var(--bg);
+        color: var(--text);
+        line-height: 1.5;
+        font-size: 14px;
+        min-height: 100vh;
+      }
+
+      /* ═══════════════════════════════════════════
+     STYLE GUIDE SHELL
+  ═══════════════════════════════════════════ */
+      .sg-header {
+        border-bottom: 1px solid var(--border);
+        background: var(--surface);
+        padding: 0 48px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 64px;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+      }
+      .sg-logo {
+        font-family: var(--font-display);
+        font-size: 22px;
+        font-weight: 800;
+        color: var(--accent);
+        letter-spacing: -0.01em;
+      }
+      .sg-logo span {
+        color: var(--text);
+      }
+      .sg-logo-sub {
+        font-family: var(--font-display);
+        font-size: 11px;
+        font-weight: 600;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--muted);
+        margin-left: 14px;
+        padding-left: 14px;
+        border-left: 1px solid var(--border);
+      }
+      .sg-version {
+        font-size: 11px;
+        color: var(--muted);
+        background: var(--surface2);
+        border: 1px solid var(--border);
+        border-radius: var(--radius-sm);
+        padding: 3px 10px;
+        font-family: var(--font-display);
+        letter-spacing: 0.08em;
+      }
+
+      .sg-layout {
+        display: flex;
+        min-height: calc(100vh - 64px);
+      }
+
+      /* Sidebar nav */
+      .sg-nav {
+        width: 220px;
+        flex-shrink: 0;
+        background: var(--surface);
+        border-right: 1px solid var(--border);
+        padding: 32px 0;
+        position: sticky;
+        top: 64px;
+        height: calc(100vh - 64px);
+        overflow-y: auto;
+      }
+      .sg-nav-section {
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--muted);
+        padding: 0 20px;
+        margin-bottom: 6px;
+        margin-top: 24px;
+      }
+      .sg-nav-section:first-child {
+        margin-top: 0;
+      }
+      .sg-nav-item {
+        display: block;
+        padding: 8px 20px;
+        font-size: 13px;
+        font-weight: 500;
+        color: var(--muted);
+        text-decoration: none;
+        border-left: 2px solid transparent;
+        transition: all var(--t-fast);
+        cursor: pointer;
+      }
+      .sg-nav-item:hover {
+        color: var(--text);
+        background: var(--surface2);
+      }
+      .sg-nav-item.active {
+        color: var(--accent);
+        border-left-color: var(--accent);
+        background: rgba(200, 240, 60, 0.05);
+      }
+
+      /* Main content */
+      .sg-main {
+        flex: 1;
+        padding: 56px 64px;
+        max-width: 960px;
+      }
+
+      /* Sections */
+      .sg-section {
+        margin-bottom: 80px;
+        scroll-margin-top: 80px;
+      }
+      .sg-section-header {
+        margin-bottom: 32px;
+        padding-bottom: 16px;
+        border-bottom: 1px solid var(--border);
+      }
+      .sg-section-title {
+        font-family: var(--font-display);
+        font-size: 28px;
+        font-weight: 700;
+        line-height: 1;
+        margin-bottom: 6px;
+      }
+      .sg-section-desc {
+        font-size: 13px;
+        color: var(--muted);
+        line-height: 1.6;
+      }
+
+      /* Sub-section */
+      .sg-sub {
+        margin-bottom: 40px;
+      }
+      .sg-sub-title {
+        font-family: var(--font-display);
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--muted);
+        margin-bottom: 16px;
+      }
+
+      /* Preview canvas */
+      .sg-preview {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: var(--radius-lg);
+        padding: 32px;
+        margin-bottom: 12px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 16px;
+        align-items: flex-start;
+      }
+      .sg-preview.dark {
+        background: var(--bg);
+      }
+      .sg-preview.col {
+        flex-direction: column;
+      }
+      .sg-preview.center {
+        justify-content: center;
+      }
+
+      /* Code block */
+      .sg-code {
+        background: #0a0c0b;
+        border: 1px solid var(--border);
+        border-radius: var(--radius-md);
+        padding: 16px 20px;
+        font-family: 'SF Mono', 'Fira Code', monospace;
+        font-size: 12px;
+        color: var(--muted);
+        overflow-x: auto;
+        line-height: 1.8;
+      }
+      .sg-code .k {
+        color: var(--accent);
+      }
+      .sg-code .v {
+        color: var(--accent2);
+      }
+      .sg-code .c {
+        color: #3a4038;
+      }
+
+      .sg-label {
+        font-size: 10px;
+        font-weight: 600;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--muted);
+        display: block;
+        margin-bottom: 8px;
+      }
+
+      /* ═══════════════════════════════════════════
+     1. COLOR SWATCHES
+  ═══════════════════════════════════════════ */
+      .color-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+        gap: 12px;
+      }
+      .color-swatch {
+        border-radius: var(--radius-md);
+        overflow: hidden;
+        border: 1px solid var(--border);
+      }
+      .color-swatch-fill {
+        height: 72px;
+      }
+      .color-swatch-info {
+        background: var(--surface2);
+        padding: 10px 12px;
+      }
+      .color-swatch-name {
+        font-family: var(--font-display);
+        font-size: 13px;
+        font-weight: 700;
+        margin-bottom: 2px;
+      }
+      .color-swatch-var {
+        font-family: 'SF Mono', 'Fira Code', monospace;
+        font-size: 10px;
+        color: var(--muted);
+      }
+      .color-swatch-hex {
+        font-family: 'SF Mono', 'Fira Code', monospace;
+        font-size: 10px;
+        color: var(--muted);
+      }
+
+      /* ═══════════════════════════════════════════
+     2. TYPOGRAPHY SPECIMENS
+  ═══════════════════════════════════════════ */
+      .type-specimen {
+        margin-bottom: 20px;
+      }
+      .type-meta {
+        display: flex;
+        gap: 16px;
+        margin-top: 6px;
+        font-size: 11px;
+        color: var(--muted);
+        font-family: 'SF Mono', 'Fira Code', monospace;
+      }
+
+      /* ═══════════════════════════════════════════
+     3. SPACING
+  ═══════════════════════════════════════════ */
+      .spacing-row {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        margin-bottom: 10px;
+      }
+      .spacing-bar {
+        background: rgba(200, 240, 60, 0.2);
+        border-left: 2px solid var(--accent);
+        height: 20px;
+        border-radius: 2px;
+        flex-shrink: 0;
+      }
+      .spacing-label {
+        font-family: 'SF Mono', 'Fira Code', monospace;
+        font-size: 11px;
+        color: var(--muted);
+        min-width: 100px;
+      }
+
+      /* ═══════════════════════════════════════════
+     COMPONENT STYLES (mirrored from wireframe)
+  ═══════════════════════════════════════════ */
+
+      /* Buttons */
+      .btn-primary {
+        padding: 12px 24px;
+        background: var(--accent);
+        color: #0d0f0e;
+        border: none;
+        border-radius: var(--radius);
+        font-family: var(--font-display);
+        font-size: 14px;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        cursor: pointer;
+        transition: opacity var(--t-base);
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .btn-primary:hover {
+        opacity: 0.88;
+      }
+
+      .btn-outline {
+        padding: 10px 22px;
+        background: transparent;
+        color: var(--text);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        font-family: var(--font-display);
+        font-size: 14px;
+        font-weight: 600;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        cursor: pointer;
+        transition: border-color var(--t-base);
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .btn-outline:hover {
+        border-color: var(--accent);
+        color: var(--accent);
+      }
+
+      .btn-ghost {
+        padding: 10px 22px;
+        background: transparent;
+        color: var(--muted);
+        border: none;
+        border-radius: var(--radius);
+        font-family: var(--font-display);
+        font-size: 14px;
+        font-weight: 600;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        cursor: pointer;
+        transition: color var(--t-base);
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .btn-ghost:hover {
+        color: var(--text);
+      }
+
+      .btn-danger {
+        padding: 10px 22px;
+        background: rgba(240, 60, 60, 0.12);
+        color: var(--danger);
+        border: 1px solid rgba(240, 60, 60, 0.3);
+        border-radius: var(--radius);
+        font-family: var(--font-display);
+        font-size: 14px;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        cursor: pointer;
+        transition: all var(--t-base);
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .btn-danger:hover {
+        background: rgba(240, 60, 60, 0.2);
+      }
+
+      /* Size variants */
+      .btn-sm {
+        padding: 7px 16px;
+        font-size: 12px;
+      }
+      .btn-lg {
+        padding: 16px 32px;
+        font-size: 16px;
+      }
+      .btn-full {
+        width: 100%;
+        justify-content: center;
+      }
+
+      /* Pills / Type Selector */
+      .type-pill {
+        padding: 7px 18px;
+        border-radius: 100px;
+        border: 1px solid var(--border);
+        font-family: var(--font-display);
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--muted);
+        cursor: pointer;
+        transition: all var(--t-fast);
+        display: inline-flex;
+        align-items: center;
+      }
+      .type-pill:hover {
+        border-color: var(--accent);
+        color: var(--accent);
+      }
+      .type-pill.selected {
+        background: var(--accent);
+        color: #0d0f0e;
+        border-color: var(--accent);
+      }
+
+      /* Score Chips */
+      .score-chip {
+        padding: 5px 12px;
+        border-radius: var(--radius);
+        border: 1px solid var(--border);
+        font-size: 11px;
+        font-weight: 600;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        color: var(--muted);
+        cursor: pointer;
+        transition: all var(--t-fast);
+        display: inline-flex;
+        align-items: center;
+      }
+      .score-chip.selected {
+        background: rgba(200, 240, 60, 0.12);
+        border-color: var(--accent);
+        color: var(--accent);
+      }
+
+      /* Form Inputs */
+      .form-input {
+        width: 100%;
+        padding: 11px 14px;
+        background: var(--surface2);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        color: var(--text);
+        font-family: var(--font-body);
+        font-size: 14px;
+        outline: none;
+        transition: border-color var(--t-base);
+      }
+      .form-input:focus {
+        border-color: var(--accent);
+      }
+      .form-input.error {
+        border-color: var(--danger);
+      }
+      .form-input::placeholder {
+        color: var(--muted);
+      }
+      .form-label {
+        display: block;
+        font-size: 11px;
+        font-weight: 600;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--muted);
+        margin-bottom: 8px;
+      }
+      .form-error {
+        font-size: 11px;
+        color: var(--danger);
+        margin-top: 6px;
+      }
+      .form-group {
+        margin-bottom: 16px;
+      }
+
+      /* Cards */
+      .card {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: var(--radius-lg);
+        padding: 24px;
+      }
+      .card-title {
+        font-family: var(--font-display);
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--muted);
+        margin-bottom: 16px;
+      }
+
+      /* Badges */
+      .badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 4px;
+        padding: 3px 8px;
+        border-radius: var(--radius-sm);
+        font-family: var(--font-display);
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+      .badge-amrap {
+        background: rgba(200, 240, 60, 0.12);
+        color: var(--accent);
+      }
+      .badge-strength {
+        background: rgba(240, 160, 60, 0.15);
+        color: var(--warn);
+      }
+      .badge-fortime {
+        background: rgba(60, 240, 160, 0.12);
+        color: var(--accent2);
+      }
+      .badge-emom {
+        background: rgba(240, 60, 60, 0.12);
+        color: var(--danger);
+      }
+      .badge-neutral {
+        background: var(--surface2);
+        border: 1px solid var(--border);
+        color: var(--muted);
+      }
+
+      /* Calendar Events */
+      .cal-event {
+        border-radius: var(--radius);
+        padding: 6px 10px;
+        font-size: 12px;
+        overflow: hidden;
+        min-width: 160px;
+      }
+      .cal-event-title {
+        font-family: var(--font-display);
+        font-weight: 700;
+        font-size: 13px;
+        letter-spacing: 0.05em;
+        line-height: 1.2;
+      }
+      .cal-event-meta {
+        font-size: 10px;
+        opacity: 0.8;
+        margin-top: 3px;
+      }
+      .ev-amrap {
+        background: rgba(200, 240, 60, 0.15);
+        border-left: 3px solid var(--accent);
+        color: var(--accent);
+      }
+      .ev-strength {
+        background: rgba(240, 160, 60, 0.15);
+        border-left: 3px solid var(--warn);
+        color: var(--warn);
+      }
+      .ev-fortime {
+        background: rgba(60, 240, 160, 0.15);
+        border-left: 3px solid var(--accent2);
+        color: var(--accent2);
+      }
+      .ev-emom {
+        background: rgba(240, 60, 60, 0.12);
+        border-left: 3px solid var(--danger);
+        color: var(--danger);
+      }
+
+      /* Movement Rows */
+      .movement-row {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 9px 14px;
+        border-top: 1px solid rgba(42, 46, 43, 0.6);
+        background: var(--surface2);
+      }
+      .movement-dot {
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: var(--accent);
+        flex-shrink: 0;
+      }
+      .movement-name {
+        font-size: 13px;
+        flex: 1;
+      }
+      .movement-sub {
+        font-size: 11px;
+        color: var(--muted);
+        margin-left: 4px;
+      }
+      .movement-reps {
+        font-family: var(--font-display);
+        font-size: 14px;
+        font-weight: 700;
+        color: var(--accent);
+      }
+
+      /* Avatar */
+      .avatar {
+        border-radius: 50%;
+        background: var(--accent);
+        color: #0d0f0e;
+        font-weight: 700;
+        font-family: var(--font-display);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+      }
+      .avatar-sm {
+        width: 28px;
+        height: 28px;
+        font-size: 11px;
+      }
+      .avatar-md {
+        width: 36px;
+        height: 36px;
+        font-size: 13px;
+      }
+      .avatar-lg {
+        width: 48px;
+        height: 48px;
+        font-size: 16px;
+      }
+      .avatar-muted {
+        background: var(--surface2);
+        border: 1px solid var(--border);
+        color: var(--muted);
+      }
+
+      /* Sidebar item (for reference) */
+      .sidebar-item-demo {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 9px 14px;
+        font-size: 13px;
+        font-weight: 500;
+        color: var(--muted);
+        border-left: 2px solid transparent;
+        border-radius: 0 var(--radius) var(--radius) 0;
+        cursor: pointer;
+        transition: all var(--t-fast);
+        margin-bottom: 2px;
+      }
+      .sidebar-item-demo:hover {
+        color: var(--text);
+        background: var(--surface2);
+      }
+      .sidebar-item-demo.active {
+        color: var(--accent);
+        border-left-color: var(--accent);
+        background: rgba(200, 240, 60, 0.05);
+      }
+
+      /* Divider */
+      .sg-divider {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        color: var(--muted);
+        font-size: 11px;
+        font-weight: 600;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+      .sg-divider::before,
+      .sg-divider::after {
+        content: '';
+        flex: 1;
+        height: 1px;
+        background: var(--border);
+      }
+
+      /* Part Block */
+      .part-block {
+        background: var(--surface2);
+        border: 1px solid var(--border);
+        border-radius: var(--radius-md);
+        overflow: hidden;
+        width: 100%;
+      }
+      .part-block.highlighted {
+        border-color: rgba(200, 240, 60, 0.3);
+      }
+      .part-header-demo {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 11px 14px;
+        border-bottom: 1px solid var(--border);
+        cursor: pointer;
+      }
+      .part-label {
+        font-family: var(--font-display);
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+      }
+      .part-meta-row {
+        font-size: 11px;
+        color: var(--muted);
+        padding: 6px 14px;
+        border-bottom: 1px solid rgba(42, 46, 43, 0.5);
+      }
+
+      /* View toggle */
+      .view-toggle {
+        display: flex;
+        gap: 4px;
+        background: var(--surface2);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 3px;
+      }
+      .view-btn {
+        padding: 5px 14px;
+        border-radius: var(--radius-sm);
+        font-family: var(--font-display);
+        font-size: 12px;
+        font-weight: 600;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--muted);
+        cursor: pointer;
+        transition: all var(--t-fast);
+      }
+      .view-btn.active {
+        background: var(--surface);
+        color: var(--text);
+      }
+
+      /* Capacity indicator */
+      .capacity-bar-wrap {
+        background: var(--border);
+        border-radius: 100px;
+        height: 4px;
+        overflow: hidden;
+        width: 80px;
+      }
+      .capacity-bar-fill {
+        height: 100%;
+        border-radius: 100px;
+        background: var(--accent);
+        transition: width 0.3s ease;
+      }
+      .capacity-bar-fill.full {
+        background: var(--danger);
+      }
+      .capacity-bar-fill.high {
+        background: var(--warn);
+      }
+
+      /* Icons (emoji stand-ins) */
+      .icon-box {
+        width: 36px;
+        height: 36px;
+        border-radius: var(--radius-md);
+        background: rgba(200, 240, 60, 0.1);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 18px;
+      }
+
+      /* Grid helpers for style guide */
+      .two-col {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+      }
+      .three-col {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 16px;
+      }
+
+      /* Tooltip example */
+      .tooltip-wrap {
+        position: relative;
+        display: inline-flex;
+      }
+      .tooltip {
+        position: absolute;
+        bottom: calc(100% + 8px);
+        left: 50%;
+        transform: translateX(-50%);
+        background: var(--surface2);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 5px 10px;
+        font-size: 11px;
+        white-space: nowrap;
+        pointer-events: none;
+        color: var(--text);
+      }
+      .tooltip::after {
+        content: '';
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+        border: 4px solid transparent;
+        border-top-color: var(--border);
+      }
+    </style>
+  </head>
+  <body>
+    <!-- ═══════════════════════════════════════════
+     HEADER
+════════════════════════════════════════════ -->
+    <header class="sg-header">
+      <div style="display: flex; align-items: center">
+        <div class="sg-logo">Zeito <span>Move</span></div>
+        <div class="sg-logo-sub">Style Guide</div>
+      </div>
+      <div class="sg-version">v1.0 · Web App</div>
+    </header>
+
+    <!-- ═══════════════════════════════════════════
+     LAYOUT
+════════════════════════════════════════════ -->
+    <div class="sg-layout">
+      <!-- Sidebar nav -->
+      <nav class="sg-nav">
+        <div class="sg-nav-section">Foundations</div>
+        <a class="sg-nav-item active" onclick="activate(this)" href="#colors">Colors</a>
+        <a class="sg-nav-item" onclick="activate(this)" href="#typography">Typography</a>
+        <a class="sg-nav-item" onclick="activate(this)" href="#spacing">Spacing & Radius</a>
+
+        <div class="sg-nav-section">Components</div>
+        <a class="sg-nav-item" onclick="activate(this)" href="#buttons">Buttons</a>
+        <a class="sg-nav-item" onclick="activate(this)" href="#pills">Pills & Chips</a>
+        <a class="sg-nav-item" onclick="activate(this)" href="#forms">Form Inputs</a>
+        <a class="sg-nav-item" onclick="activate(this)" href="#cards">Cards</a>
+        <a class="sg-nav-item" onclick="activate(this)" href="#badges">Badges</a>
+        <a class="sg-nav-item" onclick="activate(this)" href="#navigation">Navigation</a>
+
+        <div class="sg-nav-section">Patterns</div>
+        <a class="sg-nav-item" onclick="activate(this)" href="#workout-parts">Workout Parts</a>
+        <a class="sg-nav-item" onclick="activate(this)" href="#calendar-events">Calendar Events</a>
+        <a class="sg-nav-item" onclick="activate(this)" href="#avatars">Avatars</a>
+        <a class="sg-nav-item" onclick="activate(this)" href="#capacity">Capacity</a>
+      </nav>
+
+      <!-- Main -->
+      <main class="sg-main">
+        <!-- ─── INTRO ───────────────────────── -->
+        <div style="margin-bottom: 64px">
+          <div
+            style="
+              font-family: var(--font-display);
+              font-size: 13px;
+              font-weight: 700;
+              letter-spacing: 0.14em;
+              text-transform: uppercase;
+              color: var(--muted);
+              margin-bottom: 10px;
+            "
+          >
+            Design System
+          </div>
+          <div
+            style="
+              font-family: var(--font-display);
+              font-size: 52px;
+              font-weight: 800;
+              line-height: 1;
+              margin-bottom: 16px;
+            "
+          >
+            Built to move <span style="color: var(--accent)">fast.</span>
+          </div>
+          <p style="font-size: 15px; color: var(--muted); max-width: 560px; line-height: 1.7">
+            This style guide documents all the tokens, components, and patterns that make up the
+            Zeito Move web app. Use this as the single source of truth when building in Angular with
+            Spartan UI.
+          </p>
+        </div>
+
+        <!-- ═══════════════════════════════════
+         COLORS
+    ════════════════════════════════════ -->
+        <section id="colors" class="sg-section">
+          <div class="sg-section-header">
+            <div class="sg-section-title">Colors</div>
+            <div class="sg-section-desc">
+              All colours are defined as CSS custom properties on <code>:root</code> and map
+              directly to Tailwind CSS config.
+            </div>
+          </div>
+
+          <div class="sg-sub">
+            <div class="sg-sub-title">Backgrounds</div>
+            <div class="color-grid">
+              <div class="color-swatch">
+                <div class="color-swatch-fill" style="background: #0d0f0e"></div>
+                <div class="color-swatch-info">
+                  <div class="color-swatch-name">Background</div>
+                  <div class="color-swatch-var">--bg</div>
+                  <div class="color-swatch-hex">#0d0f0e</div>
+                </div>
+              </div>
+              <div class="color-swatch">
+                <div class="color-swatch-fill" style="background: #161918"></div>
+                <div class="color-swatch-info">
+                  <div class="color-swatch-name">Surface</div>
+                  <div class="color-swatch-var">--surface</div>
+                  <div class="color-swatch-hex">#161918</div>
+                </div>
+              </div>
+              <div class="color-swatch">
+                <div class="color-swatch-fill" style="background: #1e2220"></div>
+                <div class="color-swatch-info">
+                  <div class="color-swatch-name">Surface 2</div>
+                  <div class="color-swatch-var">--surface2</div>
+                  <div class="color-swatch-hex">#1e2220</div>
+                </div>
+              </div>
+              <div class="color-swatch">
+                <div class="color-swatch-fill" style="background: #2a2e2b"></div>
+                <div class="color-swatch-info">
+                  <div class="color-swatch-name">Border</div>
+                  <div class="color-swatch-var">--border</div>
+                  <div class="color-swatch-hex">#2a2e2b</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="sg-sub">
+            <div class="sg-sub-title">Brand & Semantic</div>
+            <div class="color-grid">
+              <div class="color-swatch">
+                <div class="color-swatch-fill" style="background: #c8f03c"></div>
+                <div class="color-swatch-info">
+                  <div class="color-swatch-name" style="color: #0d0f0e">Lime / Accent</div>
+                  <div class="color-swatch-var">--accent</div>
+                  <div class="color-swatch-hex">#c8f03c · Primary CTA</div>
+                </div>
+              </div>
+              <div class="color-swatch">
+                <div class="color-swatch-fill" style="background: #3cf0a0"></div>
+                <div class="color-swatch-info">
+                  <div class="color-swatch-name" style="color: #0d0f0e">Mint / Accent 2</div>
+                  <div class="color-swatch-var">--accent2</div>
+                  <div class="color-swatch-hex">#3cf0a0 · For Time</div>
+                </div>
+              </div>
+              <div class="color-swatch">
+                <div class="color-swatch-fill" style="background: #f0a03c"></div>
+                <div class="color-swatch-info">
+                  <div class="color-swatch-name" style="color: #0d0f0e">Amber / Warn</div>
+                  <div class="color-swatch-var">--warn</div>
+                  <div class="color-swatch-hex">#f0a03c · Strength</div>
+                </div>
+              </div>
+              <div class="color-swatch">
+                <div class="color-swatch-fill" style="background: #f03c3c"></div>
+                <div class="color-swatch-info">
+                  <div class="color-swatch-name">Red / Danger</div>
+                  <div class="color-swatch-var">--danger</div>
+                  <div class="color-swatch-hex">#f03c3c · EMOM / Error</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="sg-sub">
+            <div class="sg-sub-title">Text</div>
+            <div class="color-grid">
+              <div class="color-swatch">
+                <div class="color-swatch-fill" style="background: #e8ede9"></div>
+                <div class="color-swatch-info">
+                  <div class="color-swatch-name" style="color: #0d0f0e">Text</div>
+                  <div class="color-swatch-var">--text</div>
+                  <div class="color-swatch-hex">#e8ede9 · Primary body</div>
+                </div>
+              </div>
+              <div class="color-swatch">
+                <div class="color-swatch-fill" style="background: #6b7568"></div>
+                <div class="color-swatch-info">
+                  <div class="color-swatch-name">Muted</div>
+                  <div class="color-swatch-var">--muted</div>
+                  <div class="color-swatch-hex">#6b7568 · Labels / meta</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="sg-code">
+            <span class="c">/* Workout type colour map */</span>
+            <br /><span class="k">--amrap-color</span>: <span class="v">var(--accent)</span>;
+            <span class="c">/* Lime */</span> <br /><span class="k">--fortime-color</span>:
+            <span class="v">var(--accent2)</span>; <span class="c">/* Mint */</span> <br /><span
+              class="k"
+              >--strength-color</span
+            >: <span class="v">var(--warn)</span>; <span class="c">/* Amber */</span> <br /><span
+              class="k"
+              >--emom-color</span
+            >: <span class="v">var(--danger)</span>; <span class="c">/* Red */</span> <br /><span
+              class="k"
+              >--tabata-color</span
+            >: <span class="v">#a03cf0</span>; <span class="c">/* Purple (reserved) */</span>
+          </div>
+        </section>
+
+        <!-- ═══════════════════════════════════
+         TYPOGRAPHY
+    ════════════════════════════════════ -->
+        <section id="typography" class="sg-section">
+          <div class="sg-section-header">
+            <div class="sg-section-title">Typography</div>
+            <div class="sg-section-desc">
+              Two fonts. Display for headings and labels; body for prose and inputs. Both from the
+              Barlow family — athletic, condensed, purposeful.
+            </div>
+          </div>
+
+          <div class="sg-sub">
+            <div class="sg-sub-title">Font Families</div>
+            <div class="sg-preview col">
+              <div>
+                <div
+                  style="
+                    font-family: var(--font-display);
+                    font-size: 40px;
+                    font-weight: 800;
+                    line-height: 1;
+                    margin-bottom: 8px;
+                  "
+                >
+                  Barlow Condensed
+                </div>
+                <div class="type-meta">
+                  <span>var(--font-display)</span>
+                  <span>Weights: 400, 600, 700, 800</span>
+                  <span>Headlines · Labels · Buttons · Numbers</span>
+                </div>
+              </div>
+              <div style="border-top: 1px solid var(--border); padding-top: 20px; margin-top: 4px">
+                <div
+                  style="
+                    font-family: var(--font-body);
+                    font-size: 18px;
+                    font-weight: 400;
+                    line-height: 1.5;
+                    margin-bottom: 8px;
+                  "
+                >
+                  Barlow — The quick brown fox jumps over the lazy dog. 0123456789
+                </div>
+                <div class="type-meta">
+                  <span>var(--font-body)</span>
+                  <span>Weights: 300, 400, 500, 600</span>
+                  <span>Body · Inputs · Meta text</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="sg-sub">
+            <div class="sg-sub-title">Type Scale</div>
+            <div class="sg-preview col" style="gap: 20px">
+              <div class="type-specimen">
+                <div
+                  style="
+                    font-family: var(--font-display);
+                    font-size: 52px;
+                    font-weight: 800;
+                    line-height: 1;
+                  "
+                >
+                  Page Hero
+                </div>
+                <div class="type-meta">
+                  <span>52px · 800 · Barlow Condensed</span><span>Hero titles, onboarding</span>
+                </div>
+              </div>
+              <div class="type-specimen">
+                <div
+                  style="
+                    font-family: var(--font-display);
+                    font-size: 36px;
+                    font-weight: 700;
+                    line-height: 1;
+                  "
+                >
+                  Page Title
+                </div>
+                <div class="type-meta">
+                  <span>36px · 700 · Barlow Condensed</span><span>Page headings</span>
+                </div>
+              </div>
+              <div class="type-specimen">
+                <div
+                  style="
+                    font-family: var(--font-display);
+                    font-size: 28px;
+                    font-weight: 700;
+                    line-height: 1;
+                  "
+                >
+                  Card Heading / Workout Name
+                </div>
+                <div class="type-meta">
+                  <span>28px · 700 · Barlow Condensed</span
+                  ><span>Workout name field, card titles</span>
+                </div>
+              </div>
+              <div class="type-specimen">
+                <div style="font-family: var(--font-display); font-size: 20px; font-weight: 700">
+                  Section / Date Range
+                </div>
+                <div class="type-meta">
+                  <span>20px · 700 · Barlow Condensed</span
+                  ><span>Calendar date range, sub-headings</span>
+                </div>
+              </div>
+              <div class="type-specimen">
+                <div
+                  style="
+                    font-family: var(--font-display);
+                    font-size: 16px;
+                    font-weight: 700;
+                    letter-spacing: 0.06em;
+                  "
+                >
+                  Preview Head / Event Title
+                </div>
+                <div class="type-meta">
+                  <span>16px · 700 · Barlow Condensed</span
+                  ><span>Workout preview headers, event titles</span>
+                </div>
+              </div>
+              <div class="type-specimen">
+                <div
+                  style="
+                    font-family: var(--font-display);
+                    font-size: 13px;
+                    font-weight: 700;
+                    letter-spacing: 0.1em;
+                    text-transform: uppercase;
+                    color: var(--muted);
+                  "
+                >
+                  SECTION LABEL / CARD TITLE
+                </div>
+                <div class="type-meta">
+                  <span>13px · 700 · uppercase · tracking 0.1em</span
+                  ><span>Card and section labels</span>
+                </div>
+              </div>
+              <div class="type-specimen">
+                <div
+                  style="font-size: 14px; font-weight: 400; line-height: 1.6; color: var(--text)"
+                >
+                  Body text — used for descriptions, notes, and any prose content inside the app.
+                  Comfortable reading at 14px with a line-height of 1.6.
+                </div>
+                <div class="type-meta">
+                  <span>14px · 400 · Barlow</span><span>Body / descriptions</span>
+                </div>
+              </div>
+              <div class="type-specimen">
+                <div style="font-size: 12px; color: var(--muted)">
+                  Meta text — 06:00 · James D. · 18/20 members
+                </div>
+                <div class="type-meta">
+                  <span>12px · 400 · Barlow · color: --muted</span
+                  ><span>Calendar event meta, timestamps</span>
+                </div>
+              </div>
+              <div class="type-specimen">
+                <div
+                  style="
+                    font-size: 11px;
+                    font-weight: 600;
+                    letter-spacing: 0.1em;
+                    text-transform: uppercase;
+                    color: var(--muted);
+                  "
+                >
+                  MICRO LABEL
+                </div>
+                <div class="type-meta">
+                  <span>11px · 600 · uppercase · tracking 0.1em</span
+                  ><span>Form labels, filter labels</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ═══════════════════════════════════
+         SPACING
+    ════════════════════════════════════ -->
+        <section id="spacing" class="sg-section">
+          <div class="sg-section-header">
+            <div class="sg-section-title">Spacing & Radius</div>
+            <div class="sg-section-desc">
+              4px base grid. All spacing values are multiples of 4px. Radius tokens keep corners
+              consistent across all components.
+            </div>
+          </div>
+
+          <div class="two-col">
+            <div class="sg-sub">
+              <div class="sg-sub-title">Spacing Scale</div>
+              <div class="sg-preview col dark" style="gap: 0; padding: 20px">
+                <div class="spacing-row">
+                  <div class="spacing-bar" style="width: 4px"></div>
+                  <div class="spacing-label">--sp-1 · 4px</div>
+                </div>
+                <div class="spacing-row">
+                  <div class="spacing-bar" style="width: 8px"></div>
+                  <div class="spacing-label">--sp-2 · 8px</div>
+                </div>
+                <div class="spacing-row">
+                  <div class="spacing-bar" style="width: 12px"></div>
+                  <div class="spacing-label">--sp-3 · 12px</div>
+                </div>
+                <div class="spacing-row">
+                  <div class="spacing-bar" style="width: 16px"></div>
+                  <div class="spacing-label">--sp-4 · 16px</div>
+                </div>
+                <div class="spacing-row">
+                  <div class="spacing-bar" style="width: 20px"></div>
+                  <div class="spacing-label">--sp-5 · 20px</div>
+                </div>
+                <div class="spacing-row">
+                  <div class="spacing-bar" style="width: 24px"></div>
+                  <div class="spacing-label">--sp-6 · 24px</div>
+                </div>
+                <div class="spacing-row">
+                  <div class="spacing-bar" style="width: 32px"></div>
+                  <div class="spacing-label">--sp-8 · 32px</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="sg-sub">
+              <div class="sg-sub-title">Border Radius</div>
+              <div class="sg-preview col dark" style="gap: 16px">
+                <div style="display: flex; align-items: center; gap: 16px">
+                  <div
+                    style="
+                      width: 60px;
+                      height: 32px;
+                      background: var(--surface2);
+                      border: 1px solid var(--border);
+                      border-radius: 3px;
+                    "
+                  ></div>
+                  <div>
+                    <div style="font-size: 12px; font-weight: 600">sm · 3px</div>
+                    <div style="font-size: 11px; color: var(--muted)">
+                      --radius-sm · Chips, tags
+                    </div>
+                  </div>
+                </div>
+                <div style="display: flex; align-items: center; gap: 16px">
+                  <div
+                    style="
+                      width: 60px;
+                      height: 32px;
+                      background: var(--surface2);
+                      border: 1px solid var(--border);
+                      border-radius: 4px;
+                    "
+                  ></div>
+                  <div>
+                    <div style="font-size: 12px; font-weight: 600">base · 4px</div>
+                    <div style="font-size: 11px; color: var(--muted)">
+                      --radius · Buttons, inputs
+                    </div>
+                  </div>
+                </div>
+                <div style="display: flex; align-items: center; gap: 16px">
+                  <div
+                    style="
+                      width: 60px;
+                      height: 32px;
+                      background: var(--surface2);
+                      border: 1px solid var(--border);
+                      border-radius: 6px;
+                    "
+                  ></div>
+                  <div>
+                    <div style="font-size: 12px; font-weight: 600">md · 6px</div>
+                    <div style="font-size: 11px; color: var(--muted)">
+                      --radius-md · Part blocks
+                    </div>
+                  </div>
+                </div>
+                <div style="display: flex; align-items: center; gap: 16px">
+                  <div
+                    style="
+                      width: 60px;
+                      height: 32px;
+                      background: var(--surface2);
+                      border: 1px solid var(--border);
+                      border-radius: 8px;
+                    "
+                  ></div>
+                  <div>
+                    <div style="font-size: 12px; font-weight: 600">lg · 8px</div>
+                    <div style="font-size: 11px; color: var(--muted)">
+                      --radius-lg · Cards, grids
+                    </div>
+                  </div>
+                </div>
+                <div style="display: flex; align-items: center; gap: 16px">
+                  <div
+                    style="
+                      width: 60px;
+                      height: 32px;
+                      background: var(--surface2);
+                      border: 1px solid var(--border);
+                      border-radius: 100px;
+                    "
+                  ></div>
+                  <div>
+                    <div style="font-size: 12px; font-weight: 600">pill · 100px</div>
+                    <div style="font-size: 11px; color: var(--muted)">Type selector pills</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ═══════════════════════════════════
+         BUTTONS
+    ════════════════════════════════════ -->
+        <section id="buttons" class="sg-section">
+          <div class="sg-section-header">
+            <div class="sg-section-title">Buttons</div>
+            <div class="sg-section-desc">
+              Four variants, three sizes. All use Barlow Condensed uppercase with letter-spacing.
+              The primary action is always lime — never use it for more than one CTA per view.
+            </div>
+          </div>
+
+          <div class="sg-sub">
+            <div class="sg-sub-title">Variants</div>
+            <div class="sg-preview">
+              <button class="btn-primary">Save & Schedule →</button>
+              <button class="btn-outline">Save Draft</button>
+              <button class="btn-ghost">Cancel</button>
+              <button class="btn-danger">Remove Member</button>
+            </div>
+          </div>
+
+          <div class="sg-sub">
+            <div class="sg-sub-title">Sizes</div>
+            <div class="sg-preview" style="align-items: center">
+              <button class="btn-primary btn-lg">Large</button>
+              <button class="btn-primary">Default</button>
+              <button class="btn-primary btn-sm">Small</button>
+            </div>
+          </div>
+
+          <div class="sg-sub">
+            <div class="sg-sub-title">Full Width</div>
+            <div class="sg-preview col" style="max-width: 360px">
+              <button class="btn-primary btn-full">Sign In</button>
+              <button class="btn-outline btn-full">Continue with Google</button>
+            </div>
+          </div>
+
+          <div class="sg-sub">
+            <div class="sg-sub-title">Usage Rules</div>
+            <div class="sg-preview dark col" style="gap: 12px; padding: 20px">
+              <div
+                style="
+                  display: flex;
+                  gap: 12px;
+                  align-items: center;
+                  padding: 12px;
+                  background: rgba(200, 240, 60, 0.06);
+                  border: 1px solid rgba(200, 240, 60, 0.2);
+                  border-radius: var(--radius-md);
+                "
+              >
+                <span style="color: var(--accent); font-size: 16px">✓</span>
+                <span style="font-size: 12px; color: var(--text)"
+                  >Use <strong>Primary</strong> for the main action in a view — "Save & Schedule",
+                  "Sign In"</span
+                >
+              </div>
+              <div
+                style="
+                  display: flex;
+                  gap: 12px;
+                  align-items: center;
+                  padding: 12px;
+                  background: rgba(200, 240, 60, 0.06);
+                  border: 1px solid rgba(200, 240, 60, 0.2);
+                  border-radius: var(--radius-md);
+                "
+              >
+                <span style="color: var(--accent); font-size: 16px">✓</span>
+                <span style="font-size: 12px; color: var(--text)"
+                  >Use <strong>Outline</strong> for secondary actions — "Save Draft", "Today", nav
+                  filters</span
+                >
+              </div>
+              <div
+                style="
+                  display: flex;
+                  gap: 12px;
+                  align-items: center;
+                  padding: 12px;
+                  background: rgba(240, 60, 60, 0.06);
+                  border: 1px solid rgba(240, 60, 60, 0.2);
+                  border-radius: var(--radius-md);
+                "
+              >
+                <span style="color: var(--danger); font-size: 16px">✗</span>
+                <span style="font-size: 12px; color: var(--text)"
+                  >Never place two Primary buttons side by side — use Primary + Outline</span
+                >
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ═══════════════════════════════════
+         PILLS & CHIPS
+    ════════════════════════════════════ -->
+        <section id="pills" class="sg-section">
+          <div class="sg-section-header">
+            <div class="sg-section-title">Pills & Chips</div>
+            <div class="sg-section-desc">
+              Interactive selectors used for workout types, categories, score types, and filter
+              controls.
+            </div>
+          </div>
+
+          <div class="sg-sub">
+            <div class="sg-sub-title">Type Selector Pills</div>
+            <div class="sg-preview" style="flex-wrap: wrap; gap: 8px">
+              <div class="type-pill selected">AMRAP</div>
+              <div class="type-pill">EMOM</div>
+              <div class="type-pill">For Time</div>
+              <div class="type-pill">Strength</div>
+              <div class="type-pill">Tabata</div>
+              <div class="type-pill">Custom</div>
+            </div>
+          </div>
+
+          <div class="sg-sub">
+            <div class="sg-sub-title">Category Pills (Small)</div>
+            <div class="sg-preview" style="flex-wrap: wrap; gap: 8px">
+              <div class="type-pill selected" style="font-size: 11px; padding: 5px 14px">WOD</div>
+              <div class="type-pill" style="font-size: 11px; padding: 5px 14px">Strength</div>
+              <div class="type-pill" style="font-size: 11px; padding: 5px 14px">Gymnastics</div>
+              <div class="type-pill" style="font-size: 11px; padding: 5px 14px">
+                Olympic Lifting
+              </div>
+              <div class="type-pill" style="font-size: 11px; padding: 5px 14px">Mobility</div>
+              <div class="type-pill" style="font-size: 11px; padding: 5px 14px">Comp Extra</div>
+            </div>
+          </div>
+
+          <div class="sg-sub">
+            <div class="sg-sub-title">Score / Filter Chips</div>
+            <div class="sg-preview" style="flex-wrap: wrap; gap: 6px">
+              <div class="score-chip selected">Rounds + Reps</div>
+              <div class="score-chip">Total Reps</div>
+              <div class="score-chip">Load</div>
+              <div class="score-chip">Time</div>
+            </div>
+          </div>
+
+          <div class="sg-sub">
+            <div class="sg-sub-title">View Toggle</div>
+            <div class="sg-preview">
+              <div class="view-toggle">
+                <div class="view-btn active">Week</div>
+                <div class="view-btn">Day</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ═══════════════════════════════════
+         FORMS
+    ════════════════════════════════════ -->
+        <section id="forms" class="sg-section">
+          <div class="sg-section-header">
+            <div class="sg-section-title">Form Inputs</div>
+            <div class="sg-section-desc">
+              Three states: default, focused (accent border), and error. Labels use the micro label
+              style — always uppercase, spaced, muted.
+            </div>
+          </div>
+
+          <div class="sg-sub">
+            <div class="sg-sub-title">States</div>
+            <div class="sg-preview col" style="max-width: 400px; gap: 20px">
+              <div class="form-group">
+                <label class="form-label">Email Address</label>
+                <input
+                  class="form-input"
+                  placeholder="coach@zeito.com"
+                  type="email"
+                  style="cursor: text"
+                />
+              </div>
+              <div class="form-group">
+                <label class="form-label">Focused State</label>
+                <input
+                  class="form-input"
+                  value="Thrusters"
+                  type="text"
+                  style="border-color: var(--accent); cursor: text"
+                />
+              </div>
+              <div class="form-group">
+                <label class="form-label">Error State</label>
+                <input
+                  class="form-input error"
+                  value="invalid@"
+                  type="email"
+                  style="cursor: text"
+                />
+                <div class="form-error">Please enter a valid email address</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="sg-sub">
+            <div class="sg-sub-title">Large / Workout Name Input</div>
+            <div class="sg-preview dark">
+              <div
+                style="
+                  width: 100%;
+                  border-bottom: 2px solid var(--border);
+                  padding: 8px 0;
+                  font-family: var(--font-display);
+                  font-size: 28px;
+                  font-weight: 700;
+                  color: var(--text);
+                "
+              >
+                Monday WOD — Week 12
+              </div>
+            </div>
+            <div style="font-size: 11px; color: var(--muted); margin-top: 8px">
+              Transparent background, only a bottom border. Used for the workout name field.
+            </div>
+          </div>
+
+          <div class="sg-sub">
+            <div class="sg-sub-title">Config / Panel Input</div>
+            <div
+              class="sg-preview dark"
+              style="gap: 12px; flex-direction: column; max-width: 320px"
+            >
+              <div class="form-group" style="margin-bottom: 0">
+                <label class="form-label">Time Cap</label>
+                <div
+                  style="
+                    background: var(--bg);
+                    border: 1px solid var(--border);
+                    border-radius: var(--radius);
+                    padding: 10px 12px;
+                    font-family: var(--font-display);
+                    font-size: 16px;
+                    font-weight: 600;
+                  "
+                >
+                  15 min
+                </div>
+              </div>
+              <div class="form-group" style="margin-bottom: 0">
+                <label class="form-label">Class Capacity</label>
+                <div
+                  style="
+                    background: var(--bg);
+                    border: 1px solid var(--border);
+                    border-radius: var(--radius);
+                    padding: 10px 12px;
+                    font-family: var(--font-display);
+                    font-size: 16px;
+                    font-weight: 600;
+                  "
+                >
+                  20 members
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="sg-sub">
+            <div class="sg-sub-title">Divider with Label</div>
+            <div class="sg-preview dark">
+              <div class="sg-divider" style="width: 100%">or continue with</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ═══════════════════════════════════
+         CARDS
+    ════════════════════════════════════ -->
+        <section id="cards" class="sg-section">
+          <div class="sg-section-header">
+            <div class="sg-section-title">Cards</div>
+            <div class="sg-section-desc">
+              The primary container for grouped content. Always surface background, always 8px
+              radius, always 1px border.
+            </div>
+          </div>
+
+          <div class="sg-sub">
+            <div class="sg-sub-title">Standard Card</div>
+            <div class="sg-preview dark">
+              <div class="card" style="width: 280px">
+                <div class="card-title">Part B Configuration</div>
+                <div class="form-group">
+                  <label class="form-label">Time Cap</label>
+                  <div
+                    style="
+                      background: var(--bg);
+                      border: 1px solid var(--border);
+                      border-radius: var(--radius);
+                      padding: 10px 12px;
+                      font-family: var(--font-display);
+                      font-size: 16px;
+                      font-weight: 600;
+                    "
+                  >
+                    15 min
+                  </div>
+                </div>
+                <div class="form-group" style="margin-bottom: 0">
+                  <label class="form-label">Score Type</label>
+                  <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: 8px">
+                    <div class="score-chip selected">Rounds + Reps</div>
+                    <div class="score-chip">Total Reps</div>
+                    <div class="score-chip">Time</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="sg-sub">
+            <div class="sg-sub-title">Feature Card (Login screen)</div>
+            <div class="sg-preview" style="gap: 12px">
+              <div
+                style="
+                  background: var(--surface2);
+                  border: 1px solid var(--border);
+                  border-radius: var(--radius-lg);
+                  padding: 20px;
+                  width: 180px;
+                "
+              >
+                <div class="icon-box" style="margin-bottom: 12px">📅</div>
+                <div
+                  style="
+                    font-family: var(--font-display);
+                    font-size: 15px;
+                    font-weight: 700;
+                    margin-bottom: 4px;
+                  "
+                >
+                  Workout Builder
+                </div>
+                <div style="font-size: 12px; color: var(--muted); line-height: 1.5">
+                  Create AMRAPs, EMOMs and more with a visual builder.
+                </div>
+              </div>
+              <div
+                style="
+                  background: var(--surface2);
+                  border: 1px solid var(--border);
+                  border-radius: var(--radius-lg);
+                  padding: 20px;
+                  width: 180px;
+                "
+              >
+                <div class="icon-box" style="margin-bottom: 12px">📊</div>
+                <div
+                  style="
+                    font-family: var(--font-display);
+                    font-size: 15px;
+                    font-weight: 700;
+                    margin-bottom: 4px;
+                  "
+                >
+                  Analytics
+                </div>
+                <div style="font-size: 12px; color: var(--muted); line-height: 1.5">
+                  MRR, churn, attendance trends and class popularity.
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ═══════════════════════════════════
+         BADGES
+    ════════════════════════════════════ -->
+        <section id="badges" class="sg-section">
+          <div class="sg-section-header">
+            <div class="sg-section-title">Badges</div>
+            <div class="sg-section-desc">
+              Compact status indicators. Each workout type has its own colour. Opacity-based
+              backgrounds maintain legibility on any surface.
+            </div>
+          </div>
+
+          <div class="sg-sub">
+            <div class="sg-sub-title">Workout Type Badges</div>
+            <div class="sg-preview" style="gap: 8px">
+              <div class="badge badge-amrap">AMRAP</div>
+              <div class="badge badge-fortime">For Time</div>
+              <div class="badge badge-strength">Strength</div>
+              <div class="badge badge-emom">EMOM</div>
+              <div class="badge badge-neutral">Custom</div>
+            </div>
+          </div>
+
+          <div class="sg-sub">
+            <div class="sg-sub-title">With Time</div>
+            <div class="sg-preview" style="gap: 8px">
+              <div class="badge badge-amrap">AMRAP · 15 min</div>
+              <div class="badge badge-emom">EMOM · 12 min</div>
+              <div class="badge badge-strength">Strength · 5 sets</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ═══════════════════════════════════
+         NAVIGATION
+    ════════════════════════════════════ -->
+        <section id="navigation" class="sg-section">
+          <div class="sg-section-header">
+            <div class="sg-section-title">Navigation</div>
+            <div class="sg-section-desc">
+              Sidebar navigation with section groupings, active state with left accent border, and
+              user profile chip at the bottom.
+            </div>
+          </div>
+
+          <div class="sg-sub">
+            <div class="sg-sub-title">Sidebar Items</div>
+            <div class="sg-preview col dark" style="padding: 16px 0; gap: 0; max-width: 220px">
+              <div
+                style="
+                  font-size: 10px;
+                  font-weight: 700;
+                  letter-spacing: 0.14em;
+                  text-transform: uppercase;
+                  color: var(--muted);
+                  padding: 0 20px;
+                  margin-bottom: 6px;
+                "
+              >
+                Program
+              </div>
+              <div class="sidebar-item-demo active"><span>🏋️</span> Workout Builder</div>
+              <div class="sidebar-item-demo"><span>🗓</span> Schedule</div>
+              <div
+                style="
+                  font-size: 10px;
+                  font-weight: 700;
+                  letter-spacing: 0.14em;
+                  text-transform: uppercase;
+                  color: var(--muted);
+                  padding: 0 20px;
+                  margin-bottom: 6px;
+                  margin-top: 20px;
+                "
+              >
+                Gym
+              </div>
+              <div class="sidebar-item-demo"><span>👥</span> Members</div>
+              <div class="sidebar-item-demo"><span>🎽</span> Coaches</div>
+              <div class="sidebar-item-demo"><span>💳</span> Payments</div>
+              <div class="sidebar-item-demo"><span>🛍</span> Merch</div>
+            </div>
+          </div>
+
+          <div class="sg-sub">
+            <div class="sg-sub-title">Coach Profile Chip</div>
+            <div class="sg-preview dark" style="padding: 20px">
+              <div style="display: flex; align-items: center; gap: 10px">
+                <div class="avatar avatar-md">JD</div>
+                <div>
+                  <div style="font-size: 13px; font-weight: 600">James D.</div>
+                  <div style="font-size: 11px; color: var(--muted)">Head Coach</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ═══════════════════════════════════
+         WORKOUT PARTS
+    ════════════════════════════════════ -->
+        <section id="workout-parts" class="sg-section">
+          <div class="sg-section-header">
+            <div class="sg-section-title">Workout Parts</div>
+            <div class="sg-section-desc">
+              The core building block of the workout builder. Each part has a header, optional meta
+              row, movement list, and an "add movement" affordance. The active/selected part gets a
+              lime border highlight.
+            </div>
+          </div>
+
+          <div class="sg-sub">
+            <div class="sg-sub-title">Default Part Block</div>
+            <div class="sg-preview dark col">
+              <div class="part-block">
+                <div class="part-header-demo">
+                  <div style="display: flex; align-items: center; gap: 10px">
+                    <span style="color: var(--muted)">⠿</span>
+                    <span class="part-label">Part A — Warm Up</span>
+                    <div class="badge badge-neutral">Custom</div>
+                  </div>
+                  <div style="display: flex; align-items: center; gap: 8px">
+                    <span style="font-size: 11px; color: var(--muted)">10 min</span>
+                    <span style="color: var(--muted)">›</span>
+                  </div>
+                </div>
+                <div class="movement-row">
+                  <div class="movement-dot"></div>
+                  <div class="movement-name">200m Run</div>
+                  <div class="movement-reps">×2</div>
+                </div>
+                <div class="movement-row">
+                  <div class="movement-dot"></div>
+                  <div class="movement-name">Hip Circles</div>
+                  <div class="movement-reps">10 reps</div>
+                </div>
+                <div
+                  style="
+                    display: flex;
+                    align-items: center;
+                    gap: 6px;
+                    padding: 8px 14px;
+                    color: var(--muted);
+                    font-size: 12px;
+                    border-top: 1px dashed var(--border);
+                    cursor: pointer;
+                  "
+                >
+                  ＋ Add movement
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="sg-sub">
+            <div class="sg-sub-title">Active / Selected Part Block (AMRAP)</div>
+            <div class="sg-preview dark col">
+              <div class="part-block highlighted">
+                <div class="part-header-demo" style="background: rgba(200, 240, 60, 0.04)">
+                  <div style="display: flex; align-items: center; gap: 10px">
+                    <span style="color: var(--muted)">⠿</span>
+                    <span class="part-label">Part B — AMRAP</span>
+                    <div class="badge badge-amrap">AMRAP · 15 min</div>
+                  </div>
+                  <span style="color: var(--muted)">›</span>
+                </div>
+                <div class="part-meta-row">15 min time cap · Score: Rounds + Reps</div>
+                <div class="movement-row">
+                  <div class="movement-dot"></div>
+                  <div class="movement-name">
+                    Thrusters <span class="movement-sub">43kg / 29kg</span>
+                  </div>
+                  <div class="movement-reps">21 reps</div>
+                </div>
+                <div class="movement-row">
+                  <div class="movement-dot"></div>
+                  <div class="movement-name">Pull-ups</div>
+                  <div class="movement-reps">21 reps</div>
+                </div>
+                <div class="movement-row">
+                  <div class="movement-dot"></div>
+                  <div class="movement-name">
+                    Thrusters <span class="movement-sub">43kg / 29kg</span>
+                  </div>
+                  <div class="movement-reps">15 reps</div>
+                </div>
+                <div
+                  style="
+                    display: flex;
+                    align-items: center;
+                    gap: 6px;
+                    padding: 8px 14px;
+                    color: var(--muted);
+                    font-size: 12px;
+                    border-top: 1px dashed var(--border);
+                    cursor: pointer;
+                  "
+                >
+                  ＋ Add movement
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="sg-sub">
+            <div class="sg-sub-title">Strength Part Block</div>
+            <div class="sg-preview dark col">
+              <div class="part-block">
+                <div class="part-header-demo">
+                  <div style="display: flex; align-items: center; gap: 10px">
+                    <span style="color: var(--muted)">⠿</span>
+                    <span class="part-label">Part C — Strength</span>
+                    <div class="badge badge-strength">Strength</div>
+                  </div>
+                  <span style="color: var(--muted)">›</span>
+                </div>
+                <div class="movement-row">
+                  <div class="movement-dot" style="background: var(--warn)"></div>
+                  <div class="movement-name">
+                    Back Squat <span class="movement-sub">5 sets</span>
+                  </div>
+                  <div class="movement-reps" style="color: var(--warn)">5 reps</div>
+                </div>
+                <div class="movement-row">
+                  <div class="movement-dot" style="background: var(--warn)"></div>
+                  <div class="movement-name">Romanian Deadlift</div>
+                  <div class="movement-reps" style="color: var(--warn)">8 reps</div>
+                </div>
+                <div
+                  style="
+                    display: flex;
+                    align-items: center;
+                    gap: 6px;
+                    padding: 8px 14px;
+                    color: var(--muted);
+                    font-size: 12px;
+                    border-top: 1px dashed var(--border);
+                    cursor: pointer;
+                  "
+                >
+                  ＋ Add movement
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="sg-sub">
+            <div class="sg-sub-title">Add Part Button</div>
+            <div class="sg-preview dark">
+              <div
+                style="
+                  width: 100%;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  gap: 8px;
+                  padding: 12px;
+                  border: 1px dashed var(--border);
+                  border-radius: var(--radius-md);
+                  color: var(--muted);
+                  font-size: 13px;
+                  cursor: pointer;
+                "
+              >
+                ＋ Add Part / Section
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ═══════════════════════════════════
+         CALENDAR EVENTS
+    ════════════════════════════════════ -->
+        <section id="calendar-events" class="sg-section">
+          <div class="sg-section-header">
+            <div class="sg-section-title">Calendar Events</div>
+            <div class="sg-section-desc">
+              Each workout type has a distinct colour treatment — semi-transparent background with a
+              3px solid left border. Always shows workout type + name, time, coach, and capacity
+              fill.
+            </div>
+          </div>
+
+          <div class="sg-sub">
+            <div class="sg-sub-title">Event Variants</div>
+            <div class="sg-preview dark" style="flex-wrap: wrap; gap: 10px">
+              <div class="cal-event ev-amrap">
+                <div class="cal-event-title">AMRAP · Week 12 WOD</div>
+                <div class="cal-event-meta">06:00 · James D. · 18/20</div>
+              </div>
+              <div class="cal-event ev-strength">
+                <div class="cal-event-title">Strength — Back Squat</div>
+                <div class="cal-event-meta">06:00 · Sarah M. · 12/20</div>
+              </div>
+              <div class="cal-event ev-fortime">
+                <div class="cal-event-title">For Time — Cindy</div>
+                <div class="cal-event-meta">06:00 · James D. · 20/20 🔥</div>
+              </div>
+              <div class="cal-event ev-emom">
+                <div class="cal-event-title">EMOM — Gymnastics</div>
+                <div class="cal-event-meta">06:00 · Sarah M. · 8/20</div>
+              </div>
+            </div>
+            <div style="font-size: 11px; color: var(--muted); margin-top: 10px">
+              🔥 emoji used when a class is at full capacity
+            </div>
+          </div>
+
+          <div class="sg-sub">
+            <div class="sg-sub-title">Colour Key</div>
+            <div class="sg-preview dark" style="gap: 16px; flex-wrap: wrap">
+              <div style="display: flex; align-items: center; gap: 8px; font-size: 12px">
+                <div
+                  style="width: 10px; height: 10px; border-radius: 2px; background: var(--accent)"
+                ></div>
+                <span>AMRAP — Lime</span>
+              </div>
+              <div style="display: flex; align-items: center; gap: 8px; font-size: 12px">
+                <div
+                  style="width: 10px; height: 10px; border-radius: 2px; background: var(--warn)"
+                ></div>
+                <span>Strength — Amber</span>
+              </div>
+              <div style="display: flex; align-items: center; gap: 8px; font-size: 12px">
+                <div
+                  style="width: 10px; height: 10px; border-radius: 2px; background: var(--accent2)"
+                ></div>
+                <span>For Time — Mint</span>
+              </div>
+              <div style="display: flex; align-items: center; gap: 8px; font-size: 12px">
+                <div
+                  style="width: 10px; height: 10px; border-radius: 2px; background: var(--danger)"
+                ></div>
+                <span>EMOM — Red</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ═══════════════════════════════════
+         AVATARS
+    ════════════════════════════════════ -->
+        <section id="avatars" class="sg-section">
+          <div class="sg-section-header">
+            <div class="sg-section-title">Avatars</div>
+            <div class="sg-section-desc">
+              Initials-based avatars. Primary coaches use the lime accent background. Muted variant
+              for secondary states.
+            </div>
+          </div>
+
+          <div class="sg-sub">
+            <div class="sg-sub-title">Sizes</div>
+            <div class="sg-preview" style="align-items: center; gap: 16px">
+              <div style="text-align: center">
+                <div class="avatar avatar-sm" style="margin: 0 auto 8px">JD</div>
+                <div style="font-size: 10px; color: var(--muted)">sm · 28px</div>
+              </div>
+              <div style="text-align: center">
+                <div class="avatar avatar-md" style="margin: 0 auto 8px">JD</div>
+                <div style="font-size: 10px; color: var(--muted)">md · 36px</div>
+              </div>
+              <div style="text-align: center">
+                <div class="avatar avatar-lg" style="margin: 0 auto 8px">JD</div>
+                <div style="font-size: 10px; color: var(--muted)">lg · 48px</div>
+              </div>
+              <div style="text-align: center">
+                <div class="avatar avatar-md avatar-muted" style="margin: 0 auto 8px">SM</div>
+                <div style="font-size: 10px; color: var(--muted)">muted</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ═══════════════════════════════════
+         CAPACITY
+    ════════════════════════════════════ -->
+        <section id="capacity" class="sg-section">
+          <div class="sg-section-header">
+            <div class="sg-section-title">Capacity Indicators</div>
+            <div class="sg-section-desc">
+              Mini progress bar showing class fill. Three colour states: lime (available), amber
+              (high), red (full). Used inside calendar events and member list views.
+            </div>
+          </div>
+
+          <div class="sg-sub">
+            <div class="sg-sub-title">States</div>
+            <div class="sg-preview dark col" style="gap: 20px; max-width: 320px">
+              <div style="display: flex; align-items: center; gap: 12px">
+                <div class="capacity-bar-wrap" style="flex: 1">
+                  <div class="capacity-bar-fill" style="width: 40%"></div>
+                </div>
+                <span style="font-size: 12px; color: var(--text); min-width: 60px">8 / 20</span>
+                <span style="font-size: 11px; color: var(--muted)">Available</span>
+              </div>
+              <div style="display: flex; align-items: center; gap: 12px">
+                <div class="capacity-bar-wrap" style="flex: 1">
+                  <div class="capacity-bar-fill high" style="width: 80%"></div>
+                </div>
+                <span style="font-size: 12px; color: var(--text); min-width: 60px">16 / 20</span>
+                <span style="font-size: 11px; color: var(--warn)">High</span>
+              </div>
+              <div style="display: flex; align-items: center; gap: 12px">
+                <div class="capacity-bar-wrap" style="flex: 1">
+                  <div class="capacity-bar-fill full" style="width: 100%"></div>
+                </div>
+                <span style="font-size: 12px; color: var(--text); min-width: 60px">20 / 20</span>
+                <span style="font-size: 11px; color: var(--danger)">Full 🔥</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Footer -->
+        <div
+          style="
+            border-top: 1px solid var(--border);
+            padding-top: 32px;
+            margin-top: 32px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+          "
+        >
+          <div
+            style="
+              font-family: var(--font-display);
+              font-size: 18px;
+              font-weight: 700;
+              color: var(--accent);
+            "
+          >
+            Zeito <span style="color: var(--muted)">Move</span>
+          </div>
+          <div style="font-size: 11px; color: var(--muted)">
+            Style Guide v1.0 · Angular + Spartan UI + Tailwind CSS
+          </div>
+        </div>
+        <div style="height: 64px"></div>
+      </main>
+    </div>
+
+    <script>
+      function activate(el) {
+        document.querySelectorAll('.sg-nav-item').forEach((i) => i.classList.remove('active'));
+        el.classList.add('active');
+      }
+
+      // Auto-highlight nav on scroll
+      const sections = document.querySelectorAll('.sg-section');
+      const navItems = document.querySelectorAll('.sg-nav-item');
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              const id = entry.target.id;
+              navItems.forEach((item) => {
+                item.classList.toggle('active', item.getAttribute('href') === '#' + id);
+              });
+            }
+          });
+        },
+        { rootMargin: '-30% 0px -60% 0px' },
+      );
+
+      sections.forEach((s) => observer.observe(s));
+    </script>
+  </body>
+</html>

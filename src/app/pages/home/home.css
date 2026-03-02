@@ -1,0 +1,96 @@
+.sg-main {
+  flex: 1;
+  padding: 56px 64px;
+  max-width: 960px;
+}
+
+/* Sections */
+.sg-section {
+  margin-bottom: 80px;
+  scroll-margin-top: 80px;
+}
+.sg-section-header {
+  margin-bottom: 32px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--border);
+}
+.sg-section-title {
+  font-family: var(--font-display);
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 1;
+  margin-bottom: 6px;
+}
+.sg-section-desc {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+/* Sub-section */
+.sg-sub {
+  margin-bottom: 40px;
+}
+.sg-sub-title {
+  font-family: var(--font-display);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 16px;
+}
+
+/* Preview canvas */
+.sg-preview {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 32px;
+  margin-bottom: 12px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  align-items: flex-start;
+}
+.sg-preview.dark {
+  background: var(--bg);
+}
+.sg-preview.col {
+  flex-direction: column;
+}
+.sg-preview.center {
+  justify-content: center;
+}
+
+/* Code block */
+.sg-code {
+  background: #0a0c0b;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 16px 20px;
+  font-family: 'SF Mono', 'Fira Code', monospace;
+  font-size: 12px;
+  color: var(--muted);
+  overflow-x: auto;
+  line-height: 1.8;
+}
+.sg-code .k {
+  color: var(--accent);
+}
+.sg-code .v {
+  color: var(--accent2);
+}
+.sg-code .c {
+  color: #3a4038;
+}
+
+.sg-label {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  display: block;
+  margin-bottom: 8px;
+}

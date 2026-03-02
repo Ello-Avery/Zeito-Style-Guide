@@ -1,59 +1,68 @@
-# ZeitoStyleGuide
+# Zeito Style Guide
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.1.5.
+The single source of truth for tokens, components, and patterns used in the Zeito Move web app. Built with Angular 21, Tailwind CSS v4, and Spartan UI.
 
-## Development server
-
-To start a local development server, run:
+## Commands
 
 ```bash
-ng serve
+npm start          # Dev server at http://localhost:4200
+npm run build      # Production build → dist/
+npm run watch      # Dev build with watch mode
+npm test           # Run all unit tests with Vitest
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+To run a single test file:
 
 ```bash
-ng generate component component-name
+npx vitest run src/app/pages/home/home.spec.ts
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+## Stack
 
-```bash
-ng generate --help
+- **Angular 21** — standalone components, no NgModules
+- **Tailwind CSS v4** — utility-first styling via PostCSS
+- **Spartan UI** (`@spartan-ng/brain`) — headless component primitives
+- **class-variance-authority** — variant management in the component library
+- **Vitest** — unit testing
+
+## Project Structure
+
+```
+src/
+├── app/
+│   ├── pages/              # Route-level pages (home, colors, typography, …)
+│   ├── shared/
+│   │   ├── core/           # Layout components (header, sidebar)
+│   │   └── components/ui/  # Showcase/demo variants used in style guide pages
+│   ├── app.html            # App shell: <app-header> + <router-outlet>
+│   ├── app.routes.ts       # Route definitions
+│   └── app.config.ts       # App-level providers
+├── libs/
+│   └── ui/                 # Reusable component library (button, badge, skeleton, …)
+├── styles.css              # Global styles, Tailwind import, CSS custom properties
+└── index.html
 ```
 
-## Building
+### Path Aliases
 
-To build the project run:
+Import library components via alias, never by relative path:
 
-```bash
-ng build
-```
+| Alias | Source |
+|---|---|
+| `@spartan-ng/helm/button` | `src/libs/ui/button/src/index.ts` |
+| `@spartan-ng/helm/badge` | `src/libs/ui/badge/src/index.ts` |
+| `@spartan-ng/helm/skeleton` | `src/libs/ui/skeleton/src/index.ts` |
+| `@spartan-ng/helm/utils` | `src/libs/ui/utils/src/index.ts` |
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+## Theming
 
-## Running unit tests
+Colors are defined as CSS custom properties on `:root` (light) and `:root.dark` (dark) using the OKLCH color space. The dark class is toggled on `document.documentElement` by the header's theme toggle.
 
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
+Key tokens: `--background`, `--foreground`, `--accent`, `--muted`, `--border`, `--zeito-*`.
 
-```bash
-ng test
-```
+## Adding a New Component
 
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+1. Generate the library primitive into `src/libs/ui/<name>/src/` using the Spartan CLI (`components.json`).
+2. Add the path alias to `tsconfig.json`.
+3. Create showcase variants in `src/app/shared/components/ui/<name>/`.
+4. Add a `<section id="<name>">` to the relevant page template and register the nav link in `sidebar.ts`.

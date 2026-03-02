@@ -1,0 +1,44 @@
+<header
+  class="sticky top-0 z-50 w-full h-16 flex items-center justify-between px-4 border-b"
+  style="background-color: var(--zeito-surface-2); border-bottom: 2px solid var(--zeito-surface-1)"
+>
+  <div class="flex items-center">
+    <app-logo class="p-4" />
+    <div
+      class="text-md p-4"
+      style="
+        border-left: 2px solid var(--zeito-surface-1);
+        height: 2rem;
+        display: flex;
+        align-items: center;
+      "
+    >
+      Style Guide
+    </div>
+  </div>
+  <div class="flex items-center gap-1 pr-2">
+    <a
+      href="https://x.com/OnlyElliotAvery"
+      target="_blank"
+      class="flex items-center justify-center w-8 h-8 rounded-md text-neutral-500 hover:text-neutral-200 transition-colors"
+    >
+      <ng-icon name="lucideTwitter" style="--ng-icon__size: 15px" />
+    </a>
+    <a
+      href="https://github.com/Ello-Avery/Zeito-Style-Guide"
+      target="_blank"
+      class="flex items-center justify-center w-8 h-8 rounded-md text-neutral-500 hover:text-neutral-200 transition-colors"
+    >
+      <ng-icon name="lucideGithub" style="--ng-icon__size: 15px" />
+    </a>
+    <div
+      style="border-left: 2px solid var(--zeito-surface-1); height: 1rem; margin: 0 0.25rem"
+    ></div>
+    <button
+      (click)="toggleTheme()"
+      class="flex items-center justify-center w-8 h-8 rounded-md text-neutral-500 hover:text-neutral-200 hover:bg-(--zeito-surface-1) transition-colors"
+    >
+      <ng-icon [name]="themeIcon()" style="--ng-icon__size: 15px" />
+    </button>
+  </div>
+</header>

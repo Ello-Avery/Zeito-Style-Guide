@@ -21,7 +21,9 @@ npx vitest run src/app/pages/home/home.spec.ts
 
 Angular 21 standalone components app using the `@angular/build:application` builder. No NgModules — all components use `imports: []` in their `@Component` decorator directly.
 
-**Routing**: Routes are defined in [src/app/app.routes.ts](src/app/app.routes.ts) and provided via `provideRouter` in [src/app/app.config.ts](src/app/app.config.ts). The root component ([src/app/app.ts](src/app/app.ts)) renders only a `<router-outlet />`.
+**App shell**: [src/app/app.html](src/app/app.html) renders `<app-header>` + `<router-outlet />`. The `App` component hosts a `onClick()` method that toggles the `dark` class on `document.documentElement` for dark mode switching.
+
+**Routing**: Routes are defined in [src/app/app.routes.ts](src/app/app.routes.ts) and provided via `provideRouter` in [src/app/app.config.ts](src/app/app.config.ts).
 
 **Pages**: Each page lives in `src/app/pages/<name>/` with four files:
 
@@ -32,7 +34,24 @@ Angular 21 standalone components app using the `@angular/build:application` buil
 
 Current pages: `home`, `colors`, `patterns`, `typography`.
 
-**Styling**: Tailwind CSS v4 is imported globally in [src/styles.css](src/styles.css) via `@import "tailwindcss"` and processed through PostCSS (`@tailwindcss/postcss` plugin). Component-level CSS files are co-located with each page/component.
+**Core layout**: Shared layout components (header, sidebar) live in `src/app/shared/core/`. Each follows the same four-file pattern as pages.
+
+**Showcase components**: `src/app/shared/components/ui/<component>/` holds demo/showcase variants (e.g. `button-primary.ts`, `button-disabled.ts`). These import from the component library via path aliases and are used in page templates to display style guide examples.
+
+**Component library**: `src/libs/ui/<component>/src/` contains the actual reusable directives/components built on Spartan (`@spartan-ng/brain`) with `class-variance-authority` for variant management. Import via path aliases (see below), never by relative path.
+
+**Path aliases** (`tsconfig.json`):
+
+```
+@spartan-ng/helm/button   → src/libs/ui/button/src/index.ts
+@spartan-ng/helm/badge    → src/libs/ui/badge/src/index.ts
+@spartan-ng/helm/skeleton → src/libs/ui/skeleton/src/index.ts
+@spartan-ng/helm/utils    → src/libs/ui/utils/src/index.ts
+```
+
+Spartan CLI config is in `components.json` — new Spartan components generate into `src/libs/ui/`.
+
+**Styling**: Tailwind CSS v4 imported in [src/styles.css](src/styles.css) via `@import "tailwindcss"`, processed through PostCSS. Colors use OKLCH color space and are defined as CSS custom properties (`--background`, `--primary`, `--zeito-*`, etc.) with a `:root.dark` overrides block. Component-level CSS files are co-located with each component.
 
 **Testing**: Vitest (not Jest/Karma). Test globals (`describe`, `it`, `expect`) are available without imports via `tsconfig.spec.json` types. Tests match `src/**/*.spec.ts`.
 

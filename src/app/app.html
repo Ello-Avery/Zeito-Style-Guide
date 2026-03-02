@@ -1,7 +1,7 @@
-<router-outlet />
-
-<div class="h-screen flex flex-col justify-center items-center gap-32">
-  <h1 Class="text-2xl font-extrabold">Testing Styles</h1>
-  <button-primary (click)="onClick()" />
-  <button-disabled />
+<app-header></app-header>
+<div class="flex">
+  <app-sidebar />
+  <div class="flex-1 min-w-0">
+    <router-outlet />
+  </div>
 </div>

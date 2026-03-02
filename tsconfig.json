@@ -18,6 +18,15 @@
       ],
       "@spartan-ng/helm/utils": [
         "./src/libs/ui/utils/src/index.ts"
+      ],
+      "@spartan-ng/helm/badge": [
+        "./src/libs/ui/badge/src/index.ts"
+      ],
+      "@spartan-ng/helm/skeleton": [
+        "./src/libs/ui/skeleton/src/index.ts"
+      ],
+      "@spartan-ng/helm/icon": [
+        "./src/libs/ui/icon/src/index.ts"
       ]
     }
   },

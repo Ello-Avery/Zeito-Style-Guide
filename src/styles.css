@@ -16,33 +16,54 @@
     Arial, 'Noto Sans', sans-serif;
 
   --radius: 0.375rem;
+  --radius-md: 0.375rem;
+  --radius-lg: 0.5rem;
 
-  --background: oklch(0.98 0 0);
-  --foreground: oklch(0.15 0.01 150);
-  --card: oklch(0.98 0 0);
-  --card-foreground: oklch(0.15 0.01 150);
-  --popover: oklch(0.98 0 0);
-  --popover-foreground: oklch(0.15 0.01 150);
-  --primary: oklch(0.15 0.01 150);
-  --primary-foreground: oklch(0.95 0.005 140);
-  --secondary: oklch(0.95 0 0);
-  --secondary-foreground: oklch(0.15 0.01 150);
-  --muted: oklch(0.95 0 0);
-  --muted-foreground: oklch(0.5 0.01 140);
-  --accent: oklch(0.91 0.15 130);
-  --accent-foreground: oklch(0.15 0.01 150);
-  --destructive: oklch(0.62 0.22 25);
-  --border: oklch(0.88 0 0);
-  --input: oklch(0.88 0 0);
-  --ring: oklch(0.91 0.15 130);
-  --sidebar: oklch(0.98 0 0);
-  --sidebar-foreground: oklch(0.15 0.01 150);
-  --sidebar-primary: oklch(0.15 0.01 150);
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.08 0.01 150);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.08 0.01 150);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.08 0.01 150);
+  --primary: oklch(0.08 0.01 150);
+  --primary-foreground: oklch(0.98 0.005 140);
+  --secondary: oklch(0.94 0 0);
+  --secondary-foreground: oklch(0.08 0.01 150);
+  --muted: oklch(0.38 0.01 140);
+  --muted-foreground: oklch(0.42 0.01 140);
+  --accent: oklch(0.72 0.18 130);
+  --accent-foreground: oklch(0.08 0.01 150);
+  --destructive: oklch(0.55 0.22 25);
+  --border: oklch(0.8 0 0);
+  --input: oklch(0.8 0 0);
+  --ring: oklch(0.72 0.18 130);
+  --sidebar: oklch(0.97 0 0);
+  --sidebar-foreground: oklch(0.08 0.01 150);
+  --sidebar-primary: oklch(0.08 0.01 150);
   --sidebar-primary-foreground: oklch(0.98 0 0);
-  --sidebar-accent: oklch(0.95 0 0);
-  --sidebar-accent-foreground: oklch(0.15 0.01 150);
-  --sidebar-border: oklch(0.88 0 0);
-  --sidebar-ring: oklch(0.91 0.15 130);
+  --sidebar-accent: oklch(0.93 0 0);
+  --sidebar-accent-foreground: oklch(0.08 0.01 150);
+  --sidebar-border: oklch(0.82 0 0);
+  --sidebar-ring: oklch(0.72 0.18 130);
+
+  /* Legacy vars used by sidebar/component CSS */
+  --bg: oklch(1 0 0);
+  --text: oklch(0.08 0.01 150);
+  --surface: oklch(0.97 0.002 150);
+  --surface2: oklch(0.93 0.002 150);
+  --t-fast: 0.12s ease;
+  --accent2: oklch(0.55 0.14 130);
+
+  /* Zeito custom properties */
+  --zeito-logo-text: oklch(0.91 0.15 130);
+  --zeito-accent-mint: oklch(0.5 0.12 165);
+  --zeito-warning: oklch(0.5 0.14 60);
+  --zeito-success: oklch(0.5 0.12 165);
+  --zeito-surface-1: #cdd0cd;
+  --zeito-surface-2: #f0f2f0;
+  --font-display: 'Barlow Condensed', var(--font-sans);
+  --zeito-transition-fast: 0.12s ease;
+  --zeito-transition-base: 0.15s ease;
 }
 
 /* ═══════════════════════════════════════════════════════════════
@@ -61,7 +82,7 @@
   --primary-foreground: oklch(0.1 0.01 150);
   --secondary: oklch(0.16 0.01 150);
   --secondary-foreground: oklch(0.92 0.005 140);
-  --muted: oklch(0.16 0.01 150);
+  --muted: #6b7568;
   --muted-foreground: oklch(0.48 0.01 140);
   --accent: oklch(0.91 0.15 130);
   --accent-foreground: oklch(0.1 0.01 150);
@@ -78,6 +99,8 @@
   --sidebar-accent-foreground: oklch(0.92 0.005 140);
   --sidebar-border: oklch(0.19 0.01 140);
   --sidebar-ring: oklch(0.91 0.15 130);
+
+  --zeito-logo-text: #fff;
 }
 
 /* ═══════════════════════════════════════════════════════════════
@@ -87,8 +110,8 @@
   --zeito-accent-mint: oklch(0.88 0.12 165);
   --zeito-warning: oklch(0.78 0.14 60);
   --zeito-success: oklch(0.88 0.12 165);
-  --zeito-surface-1: oklch(0.14 0.01 150);
-  --zeito-surface-2: oklch(0.16 0.01 150);
+  --zeito-surface-1: #2a2e2b;
+  --zeito-surface-2: #161918;
   --font-display: 'Barlow Condensed', var(--font-sans);
   --zeito-transition-fast: 0.12s ease;
   --zeito-transition-base: 0.15s ease;

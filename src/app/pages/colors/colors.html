@@ -1,1 +1,168 @@
-<p>colors works!</p>
+<section id="colors" class="mb-20 scroll-mt-20">
+  <div class="mb-8 pb-4 border-b border-border">
+    <div class="[font-family:var(--font-display)] text-[28px] font-bold leading-none mb-1.5">
+      Colors
+    </div>
+    <div class="text-[13px] text-muted leading-[1.6]">
+      All colours are defined as CSS custom properties on <code>:root</code> and map directly to
+      Tailwind CSS config.
+    </div>
+  </div>
+
+  <div class="mb-10">
+    <div
+      class="[font-family:var(--font-display)] text-[13px] font-bold tracking-[0.1em] uppercase text-muted mb-4"
+    >
+      Backgrounds
+    </div>
+    <div class="grid grid-cols-[repeat(auto-fill,minmax(140px,1fr))] gap-3">
+      <div class="rounded-md overflow-hidden border border-border">
+        <div class="h-[72px]" style="background: #0d0f0e"></div>
+        <div class="bg-secondary py-[10px] px-3">
+          <div class="[font-family:var(--font-display)] text-[13px] font-bold mb-0.5">
+            Background
+          </div>
+          <div class="font-mono text-[10px] text-muted">--bg</div>
+          <div class="font-mono text-[10px] text-muted">#0d0f0e</div>
+        </div>
+      </div>
+      <div class="rounded-md overflow-hidden border border-border">
+        <div class="h-[72px]" style="background: #161918"></div>
+        <div class="bg-secondary py-[10px] px-3">
+          <div class="[font-family:var(--font-display)] text-[13px] font-bold mb-0.5">Surface</div>
+          <div class="font-mono text-[10px] text-muted">--surface</div>
+          <div class="font-mono text-[10px] text-muted">#161918</div>
+        </div>
+      </div>
+      <div class="rounded-md overflow-hidden border border-border">
+        <div class="h-[72px]" style="background: #1e2220"></div>
+        <div class="bg-secondary py-[10px] px-3">
+          <div class="[font-family:var(--font-display)] text-[13px] font-bold mb-0.5">
+            Surface 2
+          </div>
+          <div class="font-mono text-[10px] text-muted">--surface2</div>
+          <div class="font-mono text-[10px] text-muted">#1e2220</div>
+        </div>
+      </div>
+      <div class="rounded-md overflow-hidden border border-border">
+        <div class="h-[72px]" style="background: #2a2e2b"></div>
+        <div class="bg-secondary py-[10px] px-3">
+          <div class="[font-family:var(--font-display)] text-[13px] font-bold mb-0.5">Border</div>
+          <div class="font-mono text-[10px] text-muted">--border</div>
+          <div class="font-mono text-[10px] text-muted">#2a2e2b</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="mb-10">
+    <div
+      class="[font-family:var(--font-display)] text-[13px] font-bold tracking-[0.1em] uppercase text-muted mb-4"
+    >
+      Brand & Semantic
+    </div>
+    <div class="grid grid-cols-[repeat(auto-fill,minmax(140px,1fr))] gap-3">
+      <div class="rounded-md overflow-hidden border border-border">
+        <div class="h-[72px]" style="background: #c8f03c"></div>
+        <div class="bg-secondary py-[10px] px-3">
+          <div
+            class="[font-family:var(--font-display)] text-[13px] font-bold mb-0.5"
+            style="color: #0d0f0e"
+          >
+            Lime / Accent
+          </div>
+          <div class="font-mono text-[10px] text-muted">--accent</div>
+          <div class="font-mono text-[10px] text-muted">#c8f03c · Primary CTA</div>
+        </div>
+      </div>
+      <div class="rounded-md overflow-hidden border border-border">
+        <div class="h-[72px]" style="background: #3cf0a0"></div>
+        <div class="bg-secondary py-[10px] px-3">
+          <div
+            class="[font-family:var(--font-display)] text-[13px] font-bold mb-0.5"
+            style="color: #0d0f0e"
+          >
+            Mint / Accent 2
+          </div>
+          <div class="font-mono text-[10px] text-muted">--accent2</div>
+          <div class="font-mono text-[10px] text-muted">#3cf0a0 · For Time</div>
+        </div>
+      </div>
+      <div class="rounded-md overflow-hidden border border-border">
+        <div class="h-[72px]" style="background: #f0a03c"></div>
+        <div class="bg-secondary py-[10px] px-3">
+          <div
+            class="[font-family:var(--font-display)] text-[13px] font-bold mb-0.5"
+            style="color: #0d0f0e"
+          >
+            Amber / Warn
+          </div>
+          <div class="font-mono text-[10px] text-muted">--warn</div>
+          <div class="font-mono text-[10px] text-muted">#f0a03c · Strength</div>
+        </div>
+      </div>
+      <div class="rounded-md overflow-hidden border border-border">
+        <div class="h-[72px]" style="background: #f03c3c"></div>
+        <div class="bg-secondary py-[10px] px-3">
+          <div class="[font-family:var(--font-display)] text-[13px] font-bold mb-0.5">
+            Red / Danger
+          </div>
+          <div class="font-mono text-[10px] text-muted">--danger</div>
+          <div class="font-mono text-[10px] text-muted">#f03c3c · EMOM / Error</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="mb-10">
+    <div
+      class="[font-family:var(--font-display)] text-[13px] font-bold tracking-[0.1em] uppercase text-muted mb-4"
+    >
+      Text
+    </div>
+    <div class="grid grid-cols-[repeat(auto-fill,minmax(140px,1fr))] gap-3">
+      <div class="rounded-md overflow-hidden border border-border">
+        <div class="h-[72px]" style="background: #e8ede9"></div>
+        <div class="bg-secondary py-[10px] px-3">
+          <div
+            class="[font-family:var(--font-display)] text-[13px] font-bold mb-0.5"
+            style="color: #0d0f0e"
+          >
+            Text
+          </div>
+          <div class="font-mono text-[10px] text-muted">--text</div>
+          <div class="font-mono text-[10px] text-muted">#e8ede9 · Primary body</div>
+        </div>
+      </div>
+      <div class="rounded-md overflow-hidden border border-border">
+        <div class="h-[72px]" style="background: #6b7568"></div>
+        <div class="bg-secondary py-[10px] px-3">
+          <div class="[font-family:var(--font-display)] text-[13px] font-bold mb-0.5">Muted</div>
+          <div class="font-mono text-[10px] text-muted">--muted</div>
+          <div class="font-mono text-[10px] text-muted">#6b7568 · Labels / meta</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div
+    class="bg-[#0a0c0b] border border-border rounded-md px-5 py-4 font-mono text-[12px] text-muted overflow-x-auto leading-[1.8]"
+  >
+    <span class="text-[#3a4038]">/* Workout type colour map */</span>
+    <br /><span class="text-accent">--amrap-color</span>:
+    <span class="text-(--accent2)">var(--accent)</span>;
+    <span class="text-[#3a4038]">/* Lime */</span> <br /><span class="text-accent"
+      >--fortime-color</span
+    >: <span class="text-(--accent2)">var(--accent2)</span>;
+    <span class="text-[#3a4038]">/* Mint */</span> <br /><span class="text-accent"
+      >--strength-color</span
+    >: <span class="text-(--accent2)">var(--warn)</span>;
+    <span class="text-[#3a4038]">/* Amber */</span> <br /><span class="text-accent"
+      >--emom-color</span
+    >: <span class="text-(--accent2)">var(--danger)</span>;
+    <span class="text-[#3a4038]">/* Red */</span> <br /><span class="text-accent"
+      >--tabata-color</span
+    >: <span class="text-(--accent2)">#a03cf0</span>;
+    <span class="text-[#3a4038]">/* Purple (reserved) */</span>
+  </div>
+</section>
