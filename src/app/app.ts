@@ -1,12 +1,15 @@
 import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { ButtonPrimaryComponent, ButtonDisabledComponent } from './shared/components/ui';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  imports: [RouterOutlet, ButtonPrimaryComponent, ButtonDisabledComponent],
   templateUrl: './app.html',
-  styleUrl: './app.css'
+  styleUrl: './app.css',
 })
 export class App {
-  protected readonly title = signal('ZeitoStyleGuide');
+  onClick() {
+    console.log('clicked');
+  }
 }
