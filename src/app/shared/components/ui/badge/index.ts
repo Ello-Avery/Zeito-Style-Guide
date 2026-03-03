@@ -1,2 +1,1 @@
-export * from './badge-01';
-export * from './badge-02';
+export * from './badge-ui';
