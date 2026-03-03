@@ -11,7 +11,7 @@
     </div>
     @for (link of group.links; track link.href) {
       <a
-        class="block py-2 px-5 text-[13px] font-medium text-muted no-underline border-l-2 border-l-transparent transition-all duration-120 cursor-pointer hover:text-foreground hover:bg-muted-foreground [&.active]:text-accent [&.active]:border-l-accent [&.active]:bg-[rgba(200,240,60,0.1)]"
+        class="block py-2 px-5 text-[13px] font-medium text-muted no-underline border-l-2 border-l-transparent transition-all duration-120 cursor-pointer hover:text-foreground hover:bg-muted-foreground [&.active]:text-foreground [&.active]:border-l-accent [&.active]:bg-[rgba(200,240,60,0.3)]"
         [class.active]="activeSection() === link.href"
         [href]="'#' + link.href"
         (click)="setActive(link.href)"
