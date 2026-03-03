@@ -2,6 +2,8 @@
 
 The single source of truth for tokens, components, and patterns used in the Zeito Move web app. Built with Angular 21, Tailwind CSS v4, and Spartan UI.
 
+![Zeito Style Home Page](./public/assets/zeito-style-home.png)
+
 ## Commands
 
 ```bash
@@ -47,12 +49,12 @@ src/
 
 Import library components via alias, never by relative path:
 
-| Alias | Source |
-|---|---|
-| `@spartan-ng/helm/button` | `src/libs/ui/button/src/index.ts` |
-| `@spartan-ng/helm/badge` | `src/libs/ui/badge/src/index.ts` |
+| Alias                       | Source                              |
+| --------------------------- | ----------------------------------- |
+| `@spartan-ng/helm/button`   | `src/libs/ui/button/src/index.ts`   |
+| `@spartan-ng/helm/badge`    | `src/libs/ui/badge/src/index.ts`    |
 | `@spartan-ng/helm/skeleton` | `src/libs/ui/skeleton/src/index.ts` |
-| `@spartan-ng/helm/utils` | `src/libs/ui/utils/src/index.ts` |
+| `@spartan-ng/helm/utils`    | `src/libs/ui/utils/src/index.ts`    |
 
 ## Theming
 
