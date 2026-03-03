@@ -1,0 +1,62 @@
+.pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 7px 18px;
+  border-radius: 100px;
+  border: 1px solid var(--border);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  cursor: pointer;
+}
+.pill.sm {
+  font-size: 11px;
+  padding: 5px 14px;
+}
+.pill.selected {
+  background: var(--accent);
+  color: #0d0f0e;
+  border-color: var(--accent);
+}
+.chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 5px 12px;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+  cursor: pointer;
+}
+.chip.selected {
+  background: rgba(200, 240, 60, 0.12);
+  border-color: var(--accent);
+  color: var(--accent);
+}
+.view-toggle {
+  display: flex;
+  gap: 4px;
+  background: var(--secondary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 3px;
+}
+.view-btn {
+  padding: 5px 14px;
+  border-radius: 3px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  cursor: pointer;
+}
+.view-btn.active {
+  background: var(--card);
+  color: var(--foreground);
+}

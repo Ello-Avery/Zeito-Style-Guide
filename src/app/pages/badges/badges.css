@@ -1,0 +1,32 @@
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 8px;
+  border-radius: 3px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.badge-amrap {
+  background: rgba(200, 240, 60, 0.12);
+  color: var(--accent);
+}
+.badge-fortime {
+  background: rgba(60, 240, 160, 0.12);
+  color: var(--zeito-accent-mint);
+}
+.badge-strength {
+  background: rgba(240, 160, 60, 0.15);
+  color: var(--zeito-warning);
+}
+.badge-emom {
+  background: rgba(240, 60, 60, 0.12);
+  color: var(--destructive);
+}
+.badge-neutral {
+  background: var(--secondary);
+  border: 1px solid var(--border);
+  color: var(--muted);
+}

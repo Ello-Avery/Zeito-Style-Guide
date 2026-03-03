@@ -1,0 +1,83 @@
+<section id="workout-parts" class="mb-20 scroll-mt-20">
+  <div class="mb-8 pb-4 border-b border-border">
+    <div class="text-[28px] font-bold leading-none mb-1.5">Workout Parts</div>
+    <div class="text-[13px] text-muted leading-[1.6]">
+      The core building block of the workout builder. Each part has a header, optional meta row,
+      movement list, and an "add movement" affordance. The active/selected part gets a lime border
+      highlight.
+    </div>
+  </div>
+
+  <div class="mb-10">
+    <div class="text-[13px] font-bold tracking-widest uppercase text-muted mb-4">Default Part Block</div>
+    <div class="bg-card border border-border rounded-lg p-8 mb-3">
+      <div class="part-block">
+        <div class="part-header">
+          <div class="flex items-center gap-2.5">
+            <span class="text-muted">⠿</span>
+            <span class="part-label">Part A — Warm Up</span>
+            <div class="badge badge-neutral">Custom</div>
+          </div>
+          <div class="flex items-center gap-2">
+            <span class="text-[11px] text-muted">10 min</span>
+            <span class="text-muted">›</span>
+          </div>
+        </div>
+        <div class="move-row"><div class="move-dot"></div><div class="move-name">200m Run</div><div class="move-reps">×2</div></div>
+        <div class="move-row"><div class="move-dot"></div><div class="move-name">Hip Circles</div><div class="move-reps">10 reps</div></div>
+        <div class="add-move">＋ Add movement</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="mb-10">
+    <div class="text-[13px] font-bold tracking-widest uppercase text-muted mb-4">
+      Active / Selected Part Block (AMRAP)
+    </div>
+    <div class="bg-card border border-border rounded-lg p-8 mb-3">
+      <div class="part-block highlighted">
+        <div class="part-header" style="background: rgba(200,240,60,0.04)">
+          <div class="flex items-center gap-2.5">
+            <span class="text-muted">⠿</span>
+            <span class="part-label">Part B — AMRAP</span>
+            <div class="badge badge-amrap">AMRAP · 15 min</div>
+          </div>
+          <span class="text-muted">›</span>
+        </div>
+        <div class="part-meta">15 min time cap · Score: Rounds + Reps</div>
+        <div class="move-row"><div class="move-dot"></div><div class="move-name">Thrusters <span class="move-sub">43kg / 29kg</span></div><div class="move-reps">21 reps</div></div>
+        <div class="move-row"><div class="move-dot"></div><div class="move-name">Pull-ups</div><div class="move-reps">21 reps</div></div>
+        <div class="move-row"><div class="move-dot"></div><div class="move-name">Thrusters <span class="move-sub">43kg / 29kg</span></div><div class="move-reps">15 reps</div></div>
+        <div class="add-move">＋ Add movement</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="mb-10">
+    <div class="text-[13px] font-bold tracking-widest uppercase text-muted mb-4">Strength Part Block</div>
+    <div class="bg-card border border-border rounded-lg p-8 mb-3">
+      <div class="part-block">
+        <div class="part-header">
+          <div class="flex items-center gap-2.5">
+            <span class="text-muted">⠿</span>
+            <span class="part-label">Part C — Strength</span>
+            <div class="badge badge-strength">Strength</div>
+          </div>
+          <span class="text-muted">›</span>
+        </div>
+        <div class="move-row"><div class="move-dot warn"></div><div class="move-name">Back Squat <span class="move-sub">5 sets</span></div><div class="move-reps warn">5 reps</div></div>
+        <div class="move-row"><div class="move-dot warn"></div><div class="move-name">Romanian Deadlift</div><div class="move-reps warn">8 reps</div></div>
+        <div class="add-move">＋ Add movement</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="mb-10">
+    <div class="text-[13px] font-bold tracking-widest uppercase text-muted mb-4">Add Part Button</div>
+    <div class="bg-card border border-border rounded-lg p-8 mb-3">
+      <div class="w-full flex items-center justify-center gap-2 p-3 border border-dashed border-border rounded-md text-muted text-[13px] cursor-pointer">
+        ＋ Add Part / Section
+      </div>
+    </div>
+  </div>
+</section>

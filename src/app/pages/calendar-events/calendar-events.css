@@ -1,0 +1,38 @@
+.event {
+  border-radius: var(--radius);
+  padding: 6px 10px;
+  font-size: 12px;
+  overflow: hidden;
+  min-width: 160px;
+}
+.event-title {
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.05em;
+  line-height: 1.2;
+}
+.event-meta {
+  font-size: 10px;
+  opacity: 0.8;
+  margin-top: 3px;
+}
+.ev-amrap {
+  background: rgba(200, 240, 60, 0.15);
+  border-left: 3px solid var(--accent);
+  color: var(--accent);
+}
+.ev-fortime {
+  background: rgba(60, 240, 160, 0.15);
+  border-left: 3px solid var(--zeito-accent-mint);
+  color: var(--zeito-accent-mint);
+}
+.ev-strength {
+  background: rgba(240, 160, 60, 0.15);
+  border-left: 3px solid var(--zeito-warning);
+  color: var(--zeito-warning);
+}
+.ev-emom {
+  background: rgba(240, 60, 60, 0.12);
+  border-left: 3px solid var(--destructive);
+  color: var(--destructive);
+}

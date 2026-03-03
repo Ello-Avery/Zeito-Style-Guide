@@ -1,0 +1,38 @@
+<section id="capacity" class="mb-20 scroll-mt-20">
+  <div class="mb-8 pb-4 border-b border-border">
+    <div class="text-[28px] font-bold leading-none mb-1.5">Capacity Indicators</div>
+    <div class="text-[13px] text-muted leading-[1.6]">
+      Mini progress bar showing class fill. Three colour states: lime (available), amber (high), red
+      (full). Used inside calendar events and member list views.
+    </div>
+  </div>
+
+  <div class="mb-10">
+    <div class="text-[13px] font-bold tracking-widest uppercase text-muted mb-4">States</div>
+    <div
+      class="bg-card border border-border rounded-lg p-8 mb-3 flex flex-col gap-5 max-w-xs"
+    >
+      <div class="flex items-center gap-3">
+        <div class="flex-1 bg-border rounded-full h-1 overflow-hidden">
+          <div class="h-full rounded-full bg-accent" style="width: 40%"></div>
+        </div>
+        <span class="text-[12px] min-w-[52px]">8 / 20</span>
+        <span class="text-[11px] text-muted">Available</span>
+      </div>
+      <div class="flex items-center gap-3">
+        <div class="flex-1 bg-border rounded-full h-1 overflow-hidden">
+          <div class="h-full rounded-full" style="width: 80%; background: var(--zeito-warning)"></div>
+        </div>
+        <span class="text-[12px] min-w-[52px]">16 / 20</span>
+        <span class="text-[11px]" style="color: var(--zeito-warning)">High</span>
+      </div>
+      <div class="flex items-center gap-3">
+        <div class="flex-1 bg-border rounded-full h-1 overflow-hidden">
+          <div class="h-full rounded-full bg-destructive" style="width: 100%"></div>
+        </div>
+        <span class="text-[12px] min-w-[52px]">20 / 20</span>
+        <span class="text-[11px] text-destructive">Full 🔥</span>
+      </div>
+    </div>
+  </div>
+</section>

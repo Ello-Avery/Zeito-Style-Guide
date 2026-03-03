@@ -1,0 +1,93 @@
+<section id="buttons" class="mb-20 scroll-mt-20">
+  <div class="mb-8 pb-4 border-b border-border">
+    <div class="text-[28px] font-bold leading-none mb-1.5">Buttons</div>
+    <div class="text-[13px] text-muted leading-[1.6]">
+      Four variants, three sizes. All use Barlow Condensed uppercase with letter-spacing. The
+      primary action is always lime — never use it for more than one CTA per view.
+    </div>
+  </div>
+
+  <div class="mb-10">
+    <div class="text-[13px] font-bold tracking-widest upercase text-muted mb-4">Variants</div>
+    <div class="bg-secondary border-border rounded-lg p-8 mb-3 flex flex-col items-start gap-4">
+      <button-primary>Save & Schedule →</button-primary>
+      <button class="btn-outline">Save Draft</button>
+      <button class="btn-ghost">Cancel</button>
+      <button class="btn-danger">Remove Member</button>
+      <button-danger>Remove Member</button-danger>
+    </div>
+  </div>
+
+  <div class="mb-10">
+    <div class="text-[13px] font-bold tracking-widest upercase text-muted mb-4">Sizes</div>
+    <div class="sg-preview" style="align-items: center">
+      <button class="btn-primary btn-lg">Large</button>
+      <button class="btn-primary">Default</button>
+      <button class="btn-primary btn-sm">Small</button>
+    </div>
+  </div>
+
+  <div class="mb-10">
+    <div class="text-[13px] font-bold tracking-widest upercase text-muted mb-4">Full Width</div>
+    <div class="sg-preview col" style="max-width: 360px">
+      <button class="btn-primary btn-full">Sign In</button>
+      <button class="btn-outline btn-full">Continue with Google</button>
+    </div>
+  </div>
+
+  <div class="mb-10">
+    <div class="text-[13px] font-bold tracking-widest upercase text-muted mb-4">Usage Rules</div>
+    <div class="sg-preview dark col" style="gap: 12px; padding: 20px">
+      <div
+        style="
+          display: flex;
+          gap: 12px;
+          align-items: center;
+          padding: 12px;
+          background: rgba(200, 240, 60, 0.06);
+          border: 1px solid rgba(200, 240, 60, 0.2);
+          border-radius: var(--radius-md);
+        "
+      >
+        <span style="color: var(--accent); font-size: 16px">✓</span>
+        <span style="font-size: 12px; color: var(--text)"
+          >Use <strong>Primary</strong> for the main action in a view — "Save & Schedule", "Sign
+          In"</span
+        >
+      </div>
+      <div
+        style="
+          display: flex;
+          gap: 12px;
+          align-items: center;
+          padding: 12px;
+          background: rgba(200, 240, 60, 0.06);
+          border: 1px solid rgba(200, 240, 60, 0.2);
+          border-radius: var(--radius-md);
+        "
+      >
+        <span style="color: var(--accent); font-size: 16px">✓</span>
+        <span style="font-size: 12px; color: var(--text)"
+          >Use <strong>Outline</strong> for secondary actions — "Save Draft", "Today", nav
+          filters</span
+        >
+      </div>
+      <div
+        style="
+          display: flex;
+          gap: 12px;
+          align-items: center;
+          padding: 12px;
+          background: rgba(240, 60, 60, 0.06);
+          border: 1px solid rgba(240, 60, 60, 0.2);
+          border-radius: var(--radius-md);
+        "
+      >
+        <span style="color: var(--danger); font-size: 16px">✗</span>
+        <span style="font-size: 12px; color: var(--text)"
+          >Never place two Primary buttons side by side — use Primary + Outline</span
+        >
+      </div>
+    </div>
+  </div>
+</section>

@@ -125,6 +125,10 @@
     @apply border-border outline-ring/50;
   }
 
+  :root {
+    --font-display: 'Barlow Condensed', sans-serif;
+    --font-body: 'Barlow', sans-serif;
+  }
   body {
     @apply bg-background text-foreground;
     font-size: 14px;
