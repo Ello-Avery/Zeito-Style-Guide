@@ -31,12 +31,12 @@
   --secondary-foreground: oklch(0.08 0.01 150);
   --muted: oklch(0.38 0.01 140);
   --muted-foreground: oklch(0.42 0.01 140);
-  --accent: oklch(0.72 0.18 130);
+  --accent: oklch(0.8962 0.1986 121.77);
   --accent-foreground: oklch(0.08 0.01 150);
   --destructive: oklch(0.55 0.22 25);
   --border: oklch(0.8 0 0);
   --input: oklch(0.8 0 0);
-  --ring: oklch(0.72 0.18 130);
+  --ring: oklch(0.8962 0.1986 121.77);
   --sidebar: oklch(0.97 0 0);
   --sidebar-foreground: oklch(0.08 0.01 150);
   --sidebar-primary: oklch(0.08 0.01 150);
@@ -44,8 +44,7 @@
   --sidebar-accent: oklch(0.93 0 0);
   --sidebar-accent-foreground: oklch(0.08 0.01 150);
   --sidebar-border: oklch(0.82 0 0);
-  --sidebar-ring: oklch(0.72 0.18 130);
-
+  --sidebar-ring: oklch(0.8962 0.1986 121.77);
   /* Legacy vars used by sidebar/component CSS */
   --bg: oklch(1 0 0);
   --text: oklch(0.08 0.01 150);
@@ -55,8 +54,7 @@
   --accent2: oklch(0.55 0.14 130);
 
   /* Zeito custom properties */
-  --zeito-logo-text: oklch(0.91 0.15 130);
-  --zeito-accent-mint: oklch(0.5 0.12 165);
+  --zeito-logo-text: oklch(0.8962 0.1986 121.77) --zeito-accent-mint: oklch(0.5 0.12 165);
   --zeito-warning: oklch(0.5 0.14 60);
   --zeito-success: oklch(0.5 0.12 165);
   --zeito-surface-1: #cdd0cd;
@@ -78,28 +76,28 @@
   --card-foreground: oklch(0.92 0.005 140);
   --popover: oklch(0.16 0.01 150);
   --popover-foreground: oklch(0.92 0.005 140);
-  --primary: oklch(0.91 0.15 130);
+  --primary: oklch(0.8962 0.1986 121.77);
   --primary-foreground: oklch(0.1 0.01 150);
   --secondary: oklch(0.16 0.01 150);
   --secondary-foreground: oklch(0.92 0.005 140);
   --muted: #6b7568;
   --muted-foreground: oklch(0.48 0.01 140);
-  --accent: oklch(0.91 0.15 130);
+  --accent: oklch(0.8962 0.1986 121.77);
   --accent-foreground: oklch(0.1 0.01 150);
   --destructive: oklch(0.62 0.22 25);
   --destructive-foreground: oklch(0.92 0.005 140);
   --border: oklch(0.19 0.01 140);
   --input: oklch(0.19 0.01 140);
-  --ring: oklch(0.91 0.15 130);
+  --ring: oklch(0.8962 0.1986 121.77);
   --sidebar: oklch(0.14 0.01 150);
   --sidebar-foreground: oklch(0.92 0.005 140);
-  --sidebar-primary: oklch(0.91 0.15 130);
+  --sidebar-primary: oklch(0.8962 0.1986 121.77);
   --sidebar-primary-foreground: oklch(0.1 0.01 150);
   --sidebar-accent: oklch(0.16 0.01 150);
   --sidebar-accent-foreground: oklch(0.92 0.005 140);
   --sidebar-border: oklch(0.19 0.01 140);
-  --sidebar-ring: oklch(0.91 0.15 130);
-
+  --sidebar-ring: oklch(0.8962 0.1986 121.77);
+  --text: oklch(0.92 0.005 140);
   --zeito-logo-text: #fff;
 }
 

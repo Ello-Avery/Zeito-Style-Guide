@@ -1,13 +1,9 @@
 import { Component } from '@angular/core';
-import {
-  ButtonDangerComponent,
-  ButtonDisabledComponent,
-  ButtonPrimaryComponent,
-} from '../../shared/components/ui';
+import { ButtonComponent } from '../../shared/components/ui';
 
 @Component({
   selector: 'app-buttons',
-  imports: [ButtonPrimaryComponent, ButtonDisabledComponent, ButtonDangerComponent],
+  imports: [ButtonComponent],
   templateUrl: './buttons.html',
   styleUrl: './buttons.css',
 })

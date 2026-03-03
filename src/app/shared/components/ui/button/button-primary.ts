@@ -1,13 +1,18 @@
-import { Component } from '@angular/core';
-import { HlmButton } from '@spartan-ng/helm/button';
+import { Component, input } from '@angular/core';
+import { HlmButton, type ButtonVariants } from '@spartan-ng/helm/button';
+import type { ClassValue } from 'clsx';
 
 @Component({
-  selector: 'button-primary',
+  selector: 'button-ui',
   imports: [HlmButton],
   template: `
-    <button hlmBtn size="lg" class="font-bold uppercase tracking-widest px-6 py-4">
+    <button hlmBtn [size]="size()" [variant]="variant()" [class]="classNames()">
       <ng-content />
     </button>
   `,
 })
-export class ButtonPrimaryComponent {}
+export class ButtonComponent {
+  public readonly size = input<ButtonVariants['size']>('default');
+  public readonly variant = input<ButtonVariants['variant']>('default');
+  public readonly classNames = input<ClassValue>('');
+}
